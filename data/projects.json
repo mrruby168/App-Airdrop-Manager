@@ -15,7 +15,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Complete available Startale activities",
+      "note": "Hoàn thành các hoạt động khả dụng trên Startale",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -31,7 +31,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Connect wallet and social accounts, claim achievements, join Rooms and complete referral activities",
+      "note": "Kết nối ví và tài khoản mạng xã hội, nhận thành tích, tham gia Rooms và hoàn thành hoạt động giới thiệu",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -47,7 +47,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Join the waitlist and League of Loaf, then trade on the testnet",
+      "note": "Tham gia danh sách chờ và League of Loaf, sau đó giao dịch trên testnet",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -63,7 +63,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Complete the 7 on-chain quest steps and referral activities",
+      "note": "Hoàn thành 7 bước nhiệm vụ on-chain và hoạt động giới thiệu",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -79,7 +79,7 @@
       "priority_level": "critical",
       "tge_date": null,
       "task_date": "2026-10-12",
-      "note": "Complete individual quests, social tasks, agent and skill tasks, daily check-ins and available Amadeus quests",
+      "note": "Hoàn thành nhiệm vụ cá nhân, nhiệm vụ mạng xã hội, nhiệm vụ agent và skill, điểm danh hàng ngày và các nhiệm vụ Amadeus khả dụng",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -95,7 +95,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Sign in to the Rialo Playground and complete available activities",
+      "note": "Đăng nhập Rialo Playground và hoàn thành các hoạt động khả dụng",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -111,7 +111,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Join Inception Testnet, claim faucet DACC, complete quests and check Airdrop Checker status",
+      "note": "Tham gia Inception Testnet, nhận faucet DACC, hoàn thành nhiệm vụ và kiểm tra trạng thái Airdrop Checker",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -127,7 +127,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Complete Arkada quest, claim points/SBT/spin and register ETH wallet in mainnet whitelist form",
+      "note": "Hoàn thành nhiệm vụ Arkada, nhận điểm/SBT/vòng quay và đăng ký ví ETH trong form whitelist mainnet",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -143,7 +143,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Follow X and join Telegram, connect wallet on BNB Smart Chain Testnet, get tBNB faucet, mint .agent identity and publish service or complete jobs to build on-chain reputation",
+      "note": "Theo dõi X và tham gia Telegram, kết nối ví trên BNB Smart Chain Testnet, nhận faucet tBNB, mint danh tính .agent và đăng dịch vụ hoặc hoàn thành công việc để xây dựng uy tín on-chain",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -159,7 +159,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Connect wallet, claim Flipt test USDC, create tokens/trade on bonding curve, hold bonded positions until graduation, climb leaderboard, avoid spam/abuse",
+      "note": "Kết nối ví, nhận Flipt test USDC, tạo token/giao dịch trên bonding curve, giữ vị thế bonded đến khi graduation, leo bảng xếp hạng, tránh spam/lạm dụng",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -175,7 +175,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Join waitlist with email via referral link, check inbox for login code to claim extra points, complete tasks/surveys if available, invite friends via referral to farm $RP points",
+      "note": "Tham gia danh sách chờ bằng email qua link giới thiệu, kiểm tra hộp thư để lấy mã đăng nhập nhận thêm điểm, hoàn thành nhiệm vụ/khảo sát nếu có, mời bạn bè qua giới thiệu để farm điểm $RP",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -191,7 +191,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Open waitlist link, connect wallet (MetaMask/Coinbase/Rainbow/WalletConnect), claim 100 welcome points, follow official X and repost for bonus points, do first trade on Arc testnet/mainnet and first agent trade on Kaleido, invite via referral",
+      "note": "Mở link danh sách chờ, kết nối ví (MetaMask/Coinbase/Rainbow/WalletConnect), nhận 100 điểm chào mừng, theo dõi X chính thức và repost để nhận điểm thưởng, thực hiện giao dịch đầu tiên trên Arc testnet/mainnet và giao dịch agent đầu tiên trên Kaleido, mời qua giới thiệu",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -207,7 +207,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Visit https://arccats.xyz and submit EVM wallet address to apply for early member access",
+      "note": "Truy cập https://arccats.xyz và gửi địa chỉ ví EVM để đăng ký truy cập sớm",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -223,7 +223,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Register with email via referral link, verify email and login to claim $10 welcome bonus, view short-term renewable energy project packages, wait for next announcements, DYOR - do not deposit without verification",
+      "note": "Đăng ký bằng email qua link giới thiệu, xác minh email và đăng nhập để nhận thưởng chào mừng $10, xem các gói dự án năng lượng tái tạo ngắn hạn, chờ thông báo tiếp theo, DYOR - không nạp tiền khi chưa xác minh",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -239,7 +239,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": "2026-09-22",
-      "note": "Connect wallet (wallet = account), enter Gmail if prompted, claim 500 points + 100 points per referral, share referral link to climb waitlist rankings (waitlist expected to close ~2026-09-22)",
+      "note": "Kết nối ví (ví = tài khoản), nhập Gmail nếu được yêu cầu, nhận 500 điểm + 100 điểm mỗi lượt giới thiệu, chia sẻ link giới thiệu để leo hạng danh sách chờ (dự kiến đóng ~22/09/2026)",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -255,7 +255,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Early Access: choose username +5 SVG, follow Derpetual on X +10 SVG, follow founder on X +10 SVG, connect X +10 SVG, verify email +5 SVG, join Discord +10 SVG, connect wallet +5 SVG to farm \\ points (700+ markets, \\+ volume, 70K+ tx)",
+      "note": "Truy cập sớm: chọn username +5 SVG, theo dõi Derpetual trên X +10 SVG, theo dõi founder trên X +10 SVG, kết nối X +10 SVG, xác minh email +5 SVG, tham gia Discord +10 SVG, kết nối ví +5 SVG để farm điểm (700+ markets, 70K+ tx)",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -271,7 +271,7 @@
       "priority_level": "high",
       "tge_date": null,
       "task_date": "2026-09-20T14:00:00Z",
-      "note": "Open XDAO TON bot (t.me/xdao_ton_bot) -> Airdrop section -> connect TON wallet -> link non-custodial Solana wallet (Phantom/Solflare) before snapshot 2026-09-20 14:00 UTC, use Change Wallet to fix if needed, also connect non-custodial Arbitrum wallet (0x…) before 2026-09-25 to claim $XDAO at TGE, check eligibility in Mini App",
+      "note": "Mở bot XDAO TON (t.me/xdao_ton_bot) → mục Airdrop → kết nối ví TON → liên kết ví Solana non-custodial (Phantom/Solflare) trước snapshot 20/09/2026 14:00 UTC, dùng Change Wallet để sửa nếu cần, đồng thời kết nối ví Arbitrum non-custodial trước 25/09/2026 để claim $XDAO tại TGE, kiểm tra đủ điều kiện trong Mini App",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -287,7 +287,7 @@
       "priority_level": "medium",
       "tge_date": null,
       "task_date": null,
-      "note": "Sign up for AllScale account via https://app.allscale.io/s/XzeZVaa (email + passkey), go to Promotions/Rewards section, locate Mobile App Sign-In Bonus, download AllScale mobile app, log in to claim 1,600 AS Points",
+      "note": "Đăng ký tài khoản AllScale qua https://app.allscale.io/s/XzeZVaa (email + passkey), vào mục Promotions/Rewards, tìm Mobile App Sign-In Bonus, tải app AllScale, đăng nhập để nhận 1.600 điểm AS",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -303,7 +303,7 @@
       "priority_level": "medium",
       "tge_date": "2026-10-01",
       "task_date": "2026-10-01",
-      "note": "Open https://airdrop.czrex.com/airdrop?referral_code=GLN487XI connect EVM wallet, complete mandatory quests: Follow X @czrexchange, Follow/Join Telegram, post about CZR Token on X, sign up for CZR Exchange, complete additional tasks: Discord, connect X, daily quests (points update daily), refer friends to earn extra points",
+      "note": "Mở https://airdrop.czrex.com/airdrop?referral_code=GLN487XI kết nối ví EVM, hoàn thành nhiệm vụ bắt buộc: Theo dõi X @czrexchange, Theo dõi/Tham gia Telegram, đăng bài về CZR Token trên X, đăng ký CZR Exchange, hoàn thành nhiệm vụ bổ sung: Discord, kết nối X, nhiệm vụ hàng ngày (điểm cập nhật hàng ngày), mời bạn bè để nhận thêm điểm",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     },
@@ -319,7 +319,7 @@
       "priority_level": "high",
       "tge_date": null,
       "task_date": null,
-      "note": "Go to https://airdrop.asentum.com sign in (wallet/social), connect Asentum wallet (extension/Telegram @AsentumBot), claim faucet 5 ASE, farm XP: on-chain tx/transfer/deploy contract, use dApps ASocial/Pay/Subs/Auras swap/LP, run validator (bond test ASE), referral/share X/bug report, optional stake real $ASE 30 days for multiplier x2-x10, track XP/leaderboard",
+      "note": "Truy cập https://airdrop.asentum.com đăng nhập (ví/mạng xã hội), kết nối ví Asentum (extension/Telegram @AsentumBot), nhận faucet 5 ASE, farm XP: giao dịch on-chain/chuyển/deploy contract, dùng dApps ASocial/Pay/Subs/Auras swap/LP, chạy validator (bond test ASE), giới thiệu/chia sẻ X/báo lỗi, tùy chọn stake $ASE thật 30 ngày để nhân x2-x10, theo dõi XP/bảng xếp hạng",
       "created_at": "2026-09-21",
       "updated_at": "2026-09-21T16:50:43.932030+07:00"
     }
