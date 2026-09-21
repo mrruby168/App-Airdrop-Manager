@@ -31,9 +31,9 @@ function formatDateVN(dateStr){
 function logoFallback(name){
   return (name||'?').trim().charAt(0).toUpperCase();
 }
+function getTodayGMT7(){ const s=new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Ho_Chi_Minh'}); return new Date(s+'T00:00:00+07:00'); }
 function getImportantEvents(projects){
-  const today=new Date('2026-09-21T00:00:00+07:00');
-  today.setHours(0,0,0,0);
+  const today=getTodayGMT7();
   const events=[];
   projects.forEach(p=>{
     const name=p.name, logo=p.logo||'', web=p.web_link||'', x=p.x_post_link||'';

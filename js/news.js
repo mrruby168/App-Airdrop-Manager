@@ -16,10 +16,14 @@ function parseDate(str){
   const d=new Date(str);
   return isNaN(d.getTime())?null:d;
 }
+function getTodayGMT7(){
+  const s=new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Ho_Chi_Minh'});
+  return new Date(s+'T00:00:00+07:00');
+}
 function isToday(dateStr){
   const d=parseDate(dateStr);
   if(!d) return false;
-  const today=new Date('2026-09-21T00:00:00+07:00');
+  const today=getTodayGMT7();
   return d.getFullYear()===today.getFullYear() && d.getMonth()===today.getMonth() && d.getDate()===today.getDate();
 }
 function isImportantNews(item){

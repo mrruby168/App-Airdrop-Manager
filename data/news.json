@@ -1,8 +1,47 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-21T16:00:00+07:00",
-  "count": 3,
+  "updated_at": "2026-09-22T06:15:00+07:00",
+  "count": 6,
   "items": [
+    {
+      "id": "news_asentum_002",
+      "project_id": "asentum",
+      "project_name": "Asentum",
+      "logo": "https://unavatar.io/x/asentum",
+      "summary_vi": "Incentivized Testnet Asentum đã khởi chạy 17/09/2026 16:00 UTC, đang trong giai đoạn farm XP. Người dùng có thể nhận faucet 100 ASE, farm XP qua giao dịch on-chain, Auras swap/LP và chạy validator để leo bảng xếp hạng.",
+      "source_name": "Official Docs + GlobeNewswire",
+      "source_url": "https://airdrop.asentum.com/",
+      "source_status": "verified",
+      "level": "normal",
+      "published_at": "2026-09-22T05:00:00+07:00",
+      "created_at": "2026-09-22T06:15:00+07:00"
+    },
+    {
+      "id": "news_xdao_002",
+      "project_id": "xdao",
+      "project_name": "XDAO",
+      "logo": "https://unavatar.io/x/xdaoapp",
+      "summary_vi": "Snapshot ví Solana 20/09/2026 14:00 UTC đã diễn ra. Người dùng còn lại 3 ngày để hoàn tất kết nối ví Arbitrum non-custodial trước hạn 25/09/2026 để đủ điều kiện claim $XDAO tại TGE.",
+      "source_name": "Official X + Verified Media",
+      "source_url": "https://x.com/xdaoapp",
+      "source_status": "verified",
+      "level": "important",
+      "published_at": "2026-09-22T05:30:00+07:00",
+      "created_at": "2026-09-22T06:15:00+07:00"
+    },
+    {
+      "id": "news_earnlist_002",
+      "project_id": "earnlist",
+      "project_name": "EarnList",
+      "logo": "https://unavatar.io/x/Earnlist",
+      "summary_vi": "Hôm nay 22/09/2026 là hạn cuối dự kiến đóng danh sách chờ EarnList. Người dùng cần hoàn tất kết nối ví, nhận 500 điểm chào mừng và chia sẻ link giới thiệu để đảm bảo thứ hạng trước khi đóng.",
+      "source_name": "Official Website",
+      "source_url": "https://earnlist.app/r/fRlj_328",
+      "source_status": "verified",
+      "level": "critical",
+      "published_at": "2026-09-22T06:00:00+07:00",
+      "created_at": "2026-09-22T06:15:00+07:00"
+    },
     {
       "id": "news_czr_001",
       "project_id": "czr_genesis_airdrop",

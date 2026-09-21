@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-21T16:00:00+07:00",
+  "updated_at": "2026-09-22T06:15:00+07:00",
   "count": 20,
   "projects": [
     {
@@ -9,7 +9,7 @@
       "logo": "https://unavatar.io/x/czrexchange",
       "chain": "ethereum",
       "priority": "medium",
-      "web_link": "https://czrex.com",
+      "web_link": "https://airdrop.czrex.com/airdrop",
       "x_link": "https://x.com/czrexchange",
       "status": "active",
       "task_date": "2026-10-01",
@@ -70,7 +70,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "xdao",
@@ -135,7 +135,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "amadeus",
@@ -197,7 +197,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "asentum",
@@ -264,7 +264,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "fliptfun_testnet",
@@ -320,7 +320,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "kaleidofi",
@@ -377,7 +377,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "earnlist",
@@ -431,7 +431,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "elyon_chain",
@@ -482,7 +482,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "agentum",
@@ -534,7 +534,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "allscale",
@@ -586,7 +586,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "rep",
@@ -643,7 +643,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "lake_energy",
@@ -695,7 +695,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "loaf_markets",
@@ -746,7 +746,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "raycash",
@@ -799,7 +799,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "forecast",
@@ -851,7 +851,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "derpetual",
@@ -910,7 +910,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "startale",
@@ -967,7 +967,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "rialo",
@@ -1013,7 +1013,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "dac",
@@ -1064,7 +1064,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "project_id": "arccats",
@@ -1105,7 +1105,7 @@
           "status": "active"
         }
       ],
-      "updated_at": "2026-09-21T16:00:00+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     }
   ]
 }

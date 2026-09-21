@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-21T16:00:00+07:00",
+  "updated_at": "2026-09-22T06:15:00+07:00",
   "count": 3,
   "tasks": [
     {
@@ -18,7 +18,7 @@
       "status": "active",
       "source": "list_airdrop.json",
       "created_at": "2026-09-21T16:50:43.932030+07:00",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "task_0035",
@@ -27,7 +27,7 @@
       "type": "daily",
       "title": "Mở https://airdrop.czrex.com/airdrop?referral_code=GLN487XI kết nối ví EVM, hoàn",
       "description": "Mở https://airdrop.czrex.com/airdrop?referral_code=GLN487XI kết nối ví EVM, hoàn thành nhiệm vụ bắt buộc: Theo dõi X @czrexchange, Theo dõi/Tham gia Telegram, đăng bài về CZR Token trên X, đăng ký CZR Exchange, hoàn thành nhiệm vụ bổ sung: Discord, kết nối X, nhiệm vụ hàng ngày (điểm cập nhật hàng ngày), mời bạn bè để nhận thêm điểm",
-      "link": "https://czrex.com",
+      "link": "https://airdrop.czrex.com/airdrop",
       "chain": "ethereum",
       "priority": "medium",
       "task_date": "2026-10-01",
@@ -35,7 +35,7 @@
       "status": "active",
       "source": "list_airdrop.json",
       "created_at": "2026-09-21T16:50:43.932030+07:00",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "task_0036",
@@ -52,7 +52,7 @@
       "status": "active",
       "source": "list_airdrop.json",
       "created_at": "2026-09-21T16:50:43.932030+07:00",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     }
   ]
 }

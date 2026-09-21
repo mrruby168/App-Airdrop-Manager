@@ -1,1 +1,1 @@
-window.DATA_NEW = {"schema_version": 1, "updated_at": "2026-09-21T16:00:00+07:00", "count": 0, "tasks": []};
+window.DATA_NEW_TASKS = {"schema_version": 1, "updated_at": "2026-09-22T06:15:00+07:00", "count": 0, "tasks": []}; window.DATA_NEW = window.DATA_NEW_TASKS;

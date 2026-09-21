@@ -1,83 +1,83 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-21T16:00:00+07:00",
+  "updated_at": "2026-09-22T06:15:00+07:00",
   "count": 4,
   "items": [
     {
-      "id": "notif_czr_001",
-      "project_id": "czr_genesis_airdrop",
-      "project_name": "CZR Genesis",
-      "logo": "https://unavatar.io/x/czrexchange",
-      "type": "new_task",
-      "priority": "important",
-      "website": "https://czrex.com",
-      "title": "TASK CẦN LÀM",
+      "id": "notif_earnlist_002",
+      "project_id": "earnlist",
+      "project_name": "EarnList",
+      "logo": "https://unavatar.io/x/Earnlist",
+      "type": "deadline",
+      "priority": "critical",
+      "website": "https://earnlist.app/r/fRlj_328",
+      "title": "Hạn đóng waitlist hôm nay 22/09",
       "tasks": [
-        "Nhiệm vụ Genesis",
-        "Hoàn thành nhiệm vụ mạng xã hội",
-        "Hoạt động hàng ngày"
+        "Kết nối ví = tài khoản",
+        "Nhận 500 điểm + 100 điểm/ref",
+        "Chia sẻ link giới thiệu trước khi đóng"
       ],
-      "time": "5 phút trước",
+      "time": "vừa xong",
       "unread": true,
-      "importance": "important",
-      "created_at": "2026-09-21T16:00:00+07:00"
+      "importance": "critical",
+      "created_at": "2026-09-22T06:15:00+07:00"
     },
     {
-      "id": "notif_amadeus_001",
-      "project_id": "amadeus",
-      "project_name": "Amadeus",
-      "logo": "https://unavatar.io/x/ama_protocol",
-      "type": "daily_update",
-      "priority": "normal",
-      "website": "https://amahub.ama.one/quests?ref=CGXVE3OI",
-      "title": "Daily task đã cập nhật",
-      "tasks": [
-        "Hoàn thành nhiệm vụ hàng ngày",
-        "Nhiệm vụ agent",
-        "Nhiệm vụ skill"
-      ],
-      "time": "32 phút trước",
-      "unread": true,
-      "importance": "normal",
-      "created_at": "2026-09-21T16:00:00+07:00"
-    },
-    {
-      "id": "notif_forecast_001",
-      "project_id": "forecast",
-      "project_name": "Forecast",
-      "logo": "https://unavatar.io/x/ForecastFDN",
-      "type": "new_task",
-      "priority": "important",
-      "website": "https://forecastprotocol.xyz/mainnet-whitelist/",
-      "title": "TASK CẦN LÀM",
-      "tasks": [
-        "Hoàn thành nhiệm vụ Arkada",
-        "Nhận điểm/SBT/vòng quay",
-        "Đăng ký ví ETH trong form whitelist mainnet"
-      ],
-      "time": "1 giờ trước",
-      "unread": true,
-      "importance": "important",
-      "created_at": "2026-09-21T16:00:00+07:00"
-    },
-    {
-      "id": "notif_xdao_001",
+      "id": "notif_xdao_002",
       "project_id": "xdao",
       "project_name": "XDAO",
       "logo": "https://unavatar.io/x/xdaoapp",
       "type": "deadline",
       "priority": "critical",
       "website": "https://xdao.app",
-      "title": "Kết nối ví trước snapshot 20/09",
+      "title": "Kết nối ví Arbitrum trước 25/09",
       "tasks": [
-        "Kết nối ví TON",
-        "Liên kết ví Solana trước 20/09/2026 14:00 UTC",
-        "Kết nối ví Arbitrum trước 25/09/2026"
+        "Snapshot Solana 20/09 đã xong",
+        "Kết nối ví Arbitrum non-custodial trước 25/09/2026",
+        "Kiểm tra đủ điều kiện trong Mini App"
       ],
-      "time": "2 giờ trước",
+      "time": "vừa xong",
       "unread": true,
       "importance": "critical",
-      "created_at": "2026-09-21T16:00:00+07:00"
+      "created_at": "2026-09-22T06:15:00+07:00"
+    },
+    {
+      "id": "notif_czr_002",
+      "project_id": "czr_genesis_airdrop",
+      "project_name": "CZR Genesis",
+      "logo": "https://unavatar.io/x/czrexchange",
+      "type": "daily_update",
+      "priority": "important",
+      "website": "https://airdrop.czrex.com/airdrop",
+      "title": "Daily task - TGE 01/10 đang đến gần",
+      "tasks": [
+        "Hoàn thành nhiệm vụ hàng ngày",
+        "Theo dõi X và Telegram",
+        "Mời bạn bè trước TGE 01/10"
+      ],
+      "time": "vừa xong",
+      "unread": true,
+      "importance": "important",
+      "created_at": "2026-09-22T06:15:00+07:00"
+    },
+    {
+      "id": "notif_amadeus_002",
+      "project_id": "amadeus",
+      "project_name": "Amadeus",
+      "logo": "https://unavatar.io/x/ama_protocol",
+      "type": "daily_update",
+      "priority": "normal",
+      "website": "https://amahub.ama.one/quests?ref=CGXVE3OI",
+      "title": "Daily quest Amadeus",
+      "tasks": [
+        "Điểm danh hàng ngày",
+        "Nhiệm vụ agent và skill",
+        "Nhiệm vụ mạng xã hội"
+      ],
+      "time": "vừa xong",
+      "unread": true,
+      "importance": "normal",
+      "created_at": "2026-09-22T06:15:00+07:00"
     }
   ]
 }

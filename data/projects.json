@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-21T16:00:00+07:00",
+  "updated_at": "2026-09-22T06:15:00+07:00",
   "total": 20,
   "projects": [
     {
@@ -17,7 +17,7 @@
       "task_date": null,
       "note": "Hoàn thành các hoạt động khả dụng trên Startale",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "rep",
@@ -33,7 +33,7 @@
       "task_date": null,
       "note": "Kết nối ví và tài khoản mạng xã hội, nhận thành tích, tham gia Rooms và hoàn thành hoạt động giới thiệu",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "loaf_markets",
@@ -49,7 +49,7 @@
       "task_date": null,
       "note": "Tham gia danh sách chờ và League of Loaf, sau đó giao dịch trên testnet",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "elyon_chain",
@@ -65,7 +65,7 @@
       "task_date": null,
       "note": "Hoàn thành 7 bước nhiệm vụ on-chain và hoạt động giới thiệu",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "amadeus",
@@ -81,7 +81,7 @@
       "task_date": "2026-10-12",
       "note": "Hoàn thành nhiệm vụ cá nhân, nhiệm vụ mạng xã hội, nhiệm vụ agent và skill, điểm danh hàng ngày và các nhiệm vụ Amadeus khả dụng",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "rialo",
@@ -97,7 +97,7 @@
       "task_date": null,
       "note": "Đăng nhập Rialo Playground và hoàn thành các hoạt động khả dụng",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "dac",
@@ -113,7 +113,7 @@
       "task_date": null,
       "note": "Tham gia Inception Testnet, nhận faucet DACC, hoàn thành nhiệm vụ và kiểm tra trạng thái Airdrop Checker",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "forecast",
@@ -129,7 +129,7 @@
       "task_date": null,
       "note": "Hoàn thành nhiệm vụ Arkada, nhận điểm/SBT/vòng quay và đăng ký ví ETH trong form whitelist mainnet",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "agentum",
@@ -145,7 +145,7 @@
       "task_date": null,
       "note": "Theo dõi X và tham gia Telegram, kết nối ví trên BNB Smart Chain Testnet, nhận faucet tBNB, mint danh tính .agent và đăng dịch vụ hoặc hoàn thành công việc để xây dựng uy tín on-chain",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "fliptfun_testnet",
@@ -161,7 +161,7 @@
       "task_date": null,
       "note": "Kết nối ví, nhận Flipt test USDC, tạo token/giao dịch trên bonding curve, giữ vị thế bonded đến khi graduation, leo bảng xếp hạng, tránh spam/lạm dụng",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "raycash",
@@ -177,7 +177,7 @@
       "task_date": null,
       "note": "Tham gia danh sách chờ bằng email qua link giới thiệu, kiểm tra hộp thư để lấy mã đăng nhập nhận thêm điểm, hoàn thành nhiệm vụ/khảo sát nếu có, mời bạn bè qua giới thiệu để farm điểm $RP",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "kaleidofi",
@@ -193,7 +193,7 @@
       "task_date": null,
       "note": "Mở link danh sách chờ, kết nối ví (MetaMask/Coinbase/Rainbow/WalletConnect), nhận 100 điểm chào mừng, theo dõi X chính thức và repost để nhận điểm thưởng, thực hiện giao dịch đầu tiên trên Arc testnet/mainnet và giao dịch agent đầu tiên trên Kaleido, mời qua giới thiệu",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "arccats",
@@ -209,7 +209,7 @@
       "task_date": null,
       "note": "Truy cập https://arccats.xyz và gửi địa chỉ ví EVM để đăng ký truy cập sớm",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "lake_energy",
@@ -225,7 +225,7 @@
       "task_date": null,
       "note": "Đăng ký bằng email qua link giới thiệu, xác minh email và đăng nhập để nhận thưởng chào mừng $10, xem các gói dự án năng lượng tái tạo ngắn hạn, chờ thông báo tiếp theo, DYOR - không nạp tiền khi chưa xác minh",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "earnlist",
@@ -241,7 +241,7 @@
       "task_date": "2026-09-22",
       "note": "Kết nối ví (ví = tài khoản), nhập Gmail nếu được yêu cầu, nhận 500 điểm + 100 điểm mỗi lượt giới thiệu, chia sẻ link giới thiệu để leo hạng danh sách chờ (dự kiến đóng ~22/09/2026)",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "derpetual",
@@ -257,7 +257,7 @@
       "task_date": null,
       "note": "Truy cập sớm: chọn username +5 SVG, theo dõi Derpetual trên X +10 SVG, theo dõi founder trên X +10 SVG, kết nối X +10 SVG, xác minh email +5 SVG, tham gia Discord +10 SVG, kết nối ví +5 SVG để farm điểm (700+ markets, 70K+ tx)",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "xdao",
@@ -273,7 +273,7 @@
       "task_date": "2026-09-20T14:00:00Z",
       "note": "Mở bot XDAO TON (t.me/xdao_ton_bot) → mục Airdrop → kết nối ví TON → liên kết ví Solana non-custodial (Phantom/Solflare) trước snapshot 20/09/2026 14:00 UTC, dùng Change Wallet để sửa nếu cần, đồng thời kết nối ví Arbitrum non-custodial trước 25/09/2026 để claim $XDAO tại TGE, kiểm tra đủ điều kiện trong Mini App",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "allscale",
@@ -289,14 +289,14 @@
       "task_date": null,
       "note": "Đăng ký tài khoản AllScale qua https://app.allscale.io/s/XzeZVaa (email + passkey), vào mục Promotions/Rewards, tìm Mobile App Sign-In Bonus, tải app AllScale, đăng nhập để nhận 1.600 điểm AS",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "czr_genesis_airdrop",
       "name": "CZR Genesis Airdrop",
       "status": "active",
       "project_type": "other",
-      "web_link": "https://czrex.com",
+      "web_link": "https://airdrop.czrex.com/airdrop",
       "x_post_link": "https://x.com/czrexchange",
       "logo": "https://unavatar.io/x/czrexchange",
       "chain": "ethereum",
@@ -305,7 +305,7 @@
       "task_date": "2026-10-01",
       "note": "Mở https://airdrop.czrex.com/airdrop?referral_code=GLN487XI kết nối ví EVM, hoàn thành nhiệm vụ bắt buộc: Theo dõi X @czrexchange, Theo dõi/Tham gia Telegram, đăng bài về CZR Token trên X, đăng ký CZR Exchange, hoàn thành nhiệm vụ bổ sung: Discord, kết nối X, nhiệm vụ hàng ngày (điểm cập nhật hàng ngày), mời bạn bè để nhận thêm điểm",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     },
     {
       "id": "asentum",
@@ -321,7 +321,7 @@
       "task_date": null,
       "note": "Truy cập https://airdrop.asentum.com đăng nhập (ví/mạng xã hội), kết nối ví Asentum (extension/Telegram @AsentumBot), nhận faucet 5 ASE, farm XP: giao dịch on-chain/chuyển/deploy contract, dùng dApps ASocial/Pay/Subs/Auras swap/LP, chạy validator (bond test ASE), giới thiệu/chia sẻ X/báo lỗi, tùy chọn stake $ASE thật 30 ngày để nhân x2-x10, theo dõi XP/bảng xếp hạng",
       "created_at": "2026-09-21",
-      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+      "updated_at": "2026-09-22T06:15:00+07:00"
     }
   ]
 }

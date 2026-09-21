@@ -57,7 +57,7 @@ async function loadTasks(){
     const grid = document.getElementById('allTasksGrid');
     if(grid) grid.innerHTML = projects.map(p=>cardHTML(p)).join('');
 
-    const dailyData = await fetchJSON('./data/daily_tasks.json','DATA_DAILY');
+    const dailyData = await fetchJSON('./data/daily_tasks.json','DATA_DAILY_TASKS');
     const daily = dailyData.tasks||[];
     const dailyBox = document.getElementById('dailyTasksList');
     if(dailyBox){
@@ -68,7 +68,7 @@ async function loadTasks(){
           return cardHTML({name:d.project_name, logo: proj?.logo, web_link:d.link, x_post_link:proj?.x_post_link||'', task:d.description, task_type:'daily', priority_level:d.priority, chain:d.chain||'other', note:d.description});
         }).join('') + `</div>`;
     }
-    const newData = await fetchJSON('./data/new_tasks.json','DATA_NEW');
+    const newData = await fetchJSON('./data/new_tasks.json','DATA_NEW_TASKS');
     const newBox = document.getElementById('newTasksList');
     if(newBox){
       const nt = newData.tasks||[];
