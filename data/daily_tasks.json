@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-21T16:00:00+07:00",
+  "count": 3,
+  "tasks": [
+    {
+      "id": "task_0014",
+      "project_id": "amadeus",
+      "project_name": "Amadeus",
+      "type": "daily",
+      "title": "Complete individual quests, social tasks, agent and skill tasks, daily check-ins",
+      "description": "Complete individual quests, social tasks, agent and skill tasks, daily check-ins and available Amadeus quests",
+      "link": "https://amahub.ama.one/quests?ref=CGXVE3OI",
+      "chain": "unknown",
+      "priority": "critical",
+      "task_date": "2026-10-12",
+      "tge_date": null,
+      "status": "active",
+      "source": "list_airdrop.json",
+      "created_at": "2026-09-21T16:50:43.932030+07:00",
+      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+    },
+    {
+      "id": "task_0035",
+      "project_id": "czr_genesis_airdrop",
+      "project_name": "CZR Genesis Airdrop",
+      "type": "daily",
+      "title": "Open https://airdrop.czrex.com/airdrop?referral_code=GLN487XI connect EVM wallet",
+      "description": "Open https://airdrop.czrex.com/airdrop?referral_code=GLN487XI connect EVM wallet, complete mandatory quests: Follow X @czrexchange, Follow/Join Telegram, post about CZR Token on X, sign up for CZR Exchange, complete additional tasks: Discord, connect X, daily quests (points update daily), refer friends to earn extra points",
+      "link": "https://czrex.com",
+      "chain": "ethereum",
+      "priority": "medium",
+      "task_date": "2026-10-01",
+      "tge_date": "2026-10-01",
+      "status": "active",
+      "source": "list_airdrop.json",
+      "created_at": "2026-09-21T16:50:43.932030+07:00",
+      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+    },
+    {
+      "id": "task_0036",
+      "project_id": "asentum",
+      "project_name": "Asentum",
+      "type": "daily",
+      "title": "Go to https://airdrop.asentum.com sign in (wallet/social), connect Asentum walle",
+      "description": "Go to https://airdrop.asentum.com sign in (wallet/social), connect Asentum wallet (extension/Telegram @AsentumBot), claim faucet 5 ASE, farm XP: on-chain tx/transfer/deploy contract, use dApps ASocial/Pay/Subs/Auras swap/LP, run validator (bond test ASE), referral/share X/bug report, optional stake real $ASE 30 days for multiplier x2-x10, track XP/leaderboard",
+      "link": "https://airdrop.asentum.com/",
+      "chain": "asentum",
+      "priority": "high",
+      "task_date": null,
+      "tge_date": null,
+      "status": "active",
+      "source": "list_airdrop.json",
+      "created_at": "2026-09-21T16:50:43.932030+07:00",
+      "updated_at": "2026-09-21T16:50:43.932030+07:00"
+    }
+  ]
+}

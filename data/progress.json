@@ -1,0 +1,1111 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-21T16:00:00+07:00",
+  "count": 20,
+  "projects": [
+    {
+      "project_id": "czr_genesis_airdrop",
+      "project_name": "CZR Genesis Airdrop",
+      "logo": "https://unavatar.io/x/czrexchange",
+      "chain": "ethereum",
+      "priority": "medium",
+      "web_link": "https://czrex.com",
+      "x_link": "https://x.com/czrexchange",
+      "status": "active",
+      "task_date": "2026-10-01",
+      "tge_date": "2026-10-01",
+      "current_stage": "daily",
+      "current_stage_title": "Daily Tasks",
+      "progress_percent": 80,
+      "stages": [
+        {
+          "id": "register",
+          "title": "Join",
+          "status": "done"
+        },
+        {
+          "id": "wallet",
+          "title": "Connect Wallet",
+          "status": "done"
+        },
+        {
+          "id": "quest",
+          "title": "Genesis Quest",
+          "status": "done",
+          "note": "Follow X, Telegram, post"
+        },
+        {
+          "id": "daily",
+          "title": "Daily Tasks",
+          "status": "active",
+          "deadline": "2026-10-01",
+          "note": "Điểm update hàng ngày trước TGE 2026-10-01"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        },
+        {
+          "id": "tge",
+          "title": "TGE",
+          "status": "locked",
+          "deadline": "2026-10-01"
+        },
+        {
+          "id": "claim",
+          "title": "Claim",
+          "status": "locked"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật daily",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "xdao",
+      "project_name": "XDAO",
+      "logo": "https://unavatar.io/x/xdaoapp",
+      "chain": "solana",
+      "priority": "high",
+      "web_link": "https://xdao.app",
+      "x_link": "https://x.com/xdaoapp",
+      "status": "active",
+      "task_date": "2026-09-20T14:00:00Z",
+      "tge_date": null,
+      "current_stage": "wallet",
+      "current_stage_title": "Connect TON + Solana",
+      "progress_percent": 70,
+      "stages": [
+        {
+          "id": "join",
+          "title": "Join Bot",
+          "status": "done",
+          "note": "t.me/xdao_ton_bot"
+        },
+        {
+          "id": "wallet",
+          "title": "Connect TON + Solana",
+          "status": "active",
+          "deadline": "2026-09-20T14:00:00Z",
+          "note": "Solana trước 20/09 14:00 UTC, Arbitrum trước 25/09"
+        },
+        {
+          "id": "eligibility",
+          "title": "Eligibility",
+          "status": "pending",
+          "note": "Check Mini App"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending",
+          "deadline": "2026-09-20T14:00:00Z"
+        },
+        {
+          "id": "tge",
+          "title": "TGE",
+          "status": "locked"
+        },
+        {
+          "id": "claim",
+          "title": "Claim",
+          "status": "locked"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật wallet",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "amadeus",
+      "project_name": "Amadeus",
+      "logo": "https://unavatar.io/x/ama_protocol",
+      "chain": "unknown",
+      "priority": "critical",
+      "web_link": "https://amahub.ama.one/quests?ref=CGXVE3OI",
+      "x_link": "https://x.com/ama_protocol",
+      "status": "active",
+      "task_date": "2026-10-12",
+      "tge_date": null,
+      "current_stage": "season",
+      "current_stage_title": "Season",
+      "progress_percent": 60,
+      "stages": [
+        {
+          "id": "register",
+          "title": "Register",
+          "status": "done"
+        },
+        {
+          "id": "wallet",
+          "title": "Wallet",
+          "status": "done"
+        },
+        {
+          "id": "season",
+          "title": "Season",
+          "status": "active",
+          "note": "Daily check-in + agent/skill tasks"
+        },
+        {
+          "id": "daily",
+          "title": "Daily Farm",
+          "status": "active",
+          "deadline": "2026-10-12"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        },
+        {
+          "id": "tge",
+          "title": "TGE",
+          "status": "locked"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật season",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "asentum",
+      "project_name": "Asentum",
+      "logo": "https://unavatar.io/x/asentum",
+      "chain": "asentum",
+      "priority": "high",
+      "web_link": "https://airdrop.asentum.com/",
+      "x_link": "https://x.com/asentum",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "xp",
+      "current_stage_title": "Farm XP",
+      "progress_percent": 45,
+      "stages": [
+        {
+          "id": "signin",
+          "title": "Sign In",
+          "status": "done"
+        },
+        {
+          "id": "faucet",
+          "title": "Faucet 5 ASE",
+          "status": "done"
+        },
+        {
+          "id": "xp",
+          "title": "Farm XP",
+          "status": "active",
+          "note": "Tx, deploy, dApps, swap/LP"
+        },
+        {
+          "id": "validator",
+          "title": "Validator",
+          "status": "pending",
+          "note": "Bond test ASE"
+        },
+        {
+          "id": "daily",
+          "title": "Daily",
+          "status": "active"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        },
+        {
+          "id": "tge",
+          "title": "TGE",
+          "status": "locked"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật xp",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "fliptfun_testnet",
+      "project_name": "Fliptfun Testnet",
+      "logo": "https://unavatar.io/x/Fliptfun",
+      "chain": "arc",
+      "priority": "medium",
+      "web_link": "https://testnet.flipt.fun/",
+      "x_link": "https://x.com/Fliptfun",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "trade",
+      "current_stage_title": "Bonding Curve Trade",
+      "progress_percent": 40,
+      "stages": [
+        {
+          "id": "wallet",
+          "title": "Connect Wallet",
+          "status": "done"
+        },
+        {
+          "id": "faucet",
+          "title": "Claim test USDC",
+          "status": "done"
+        },
+        {
+          "id": "trade",
+          "title": "Bonding Curve Trade",
+          "status": "active",
+          "note": "Hold until graduation"
+        },
+        {
+          "id": "leaderboard",
+          "title": "Leaderboard",
+          "status": "pending"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật trade",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "kaleidofi",
+      "project_name": "KaleidoFi",
+      "logo": "https://unavatar.io/x/KaleidoFi",
+      "chain": "arc",
+      "priority": "medium",
+      "web_link": "https://kaleidofi.xyz/waitlist?ref=aqgssv74",
+      "x_link": "https://x.com/KaleidoFi",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "trade",
+      "current_stage_title": "Arc Trade + Agent Trade",
+      "progress_percent": 35,
+      "stages": [
+        {
+          "id": "wallet",
+          "title": "Connect Wallet",
+          "status": "done",
+          "note": "Arc chain"
+        },
+        {
+          "id": "points",
+          "title": "100 Welcome Points",
+          "status": "done"
+        },
+        {
+          "id": "social",
+          "title": "Follow & Repost",
+          "status": "pending"
+        },
+        {
+          "id": "trade",
+          "title": "Arc Trade + Agent Trade",
+          "status": "active",
+          "note": "First trade mainnet/testnet"
+        },
+        {
+          "id": "referral",
+          "title": "Referral",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật trade",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "earnlist",
+      "project_name": "EarnList",
+      "logo": "https://unavatar.io/x/Earnlist",
+      "chain": "other",
+      "priority": "medium",
+      "web_link": "https://earnlist.app/r/fRlj_328",
+      "x_link": "https://x.com/Earnlist",
+      "status": "active",
+      "task_date": "2026-09-22",
+      "tge_date": null,
+      "current_stage": "tasks",
+      "current_stage_title": "Waitlist Tasks",
+      "progress_percent": 35,
+      "stages": [
+        {
+          "id": "register",
+          "title": "Register",
+          "status": "done",
+          "note": "Connect wallet = account"
+        },
+        {
+          "id": "tasks",
+          "title": "Waitlist Tasks",
+          "status": "active",
+          "deadline": "2026-09-22",
+          "note": "500 pts + 100/ref, close 22/09"
+        },
+        {
+          "id": "ranking",
+          "title": "Ranking",
+          "status": "pending",
+          "deadline": "2026-09-22"
+        },
+        {
+          "id": "tge",
+          "title": "TGE",
+          "status": "locked"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật tasks",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "elyon_chain",
+      "project_name": "Elyon Chain",
+      "logo": "https://unavatar.io/x/Elyon_Chain",
+      "chain": "elyon",
+      "priority": "medium",
+      "web_link": "https://airdrop.elyon.network/r/73RAUTL",
+      "x_link": "https://x.com/Elyon_Chain",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "quest",
+      "current_stage_title": "7 On-chain Quests",
+      "progress_percent": 30,
+      "stages": [
+        {
+          "id": "register",
+          "title": "Register",
+          "status": "done"
+        },
+        {
+          "id": "quest",
+          "title": "7 On-chain Quests",
+          "status": "active",
+          "note": "airdrop.elyon.network"
+        },
+        {
+          "id": "referral",
+          "title": "Referral",
+          "status": "pending"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật quest",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "agentum",
+      "project_name": "Agentum",
+      "logo": "https://unavatar.io/x/Agentum_space",
+      "chain": "bsc",
+      "priority": "medium",
+      "web_link": "https://agentum.space",
+      "x_link": "https://x.com/Agentum_space",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "wallet",
+      "current_stage_title": "BSC Testnet Wallet",
+      "progress_percent": 30,
+      "stages": [
+        {
+          "id": "social",
+          "title": "Follow X/Telegram",
+          "status": "done"
+        },
+        {
+          "id": "wallet",
+          "title": "BSC Testnet Wallet",
+          "status": "active",
+          "note": "tBNB faucet, mint .agent"
+        },
+        {
+          "id": "service",
+          "title": "Publish Service",
+          "status": "pending",
+          "note": "Build reputation"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật wallet",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "allscale",
+      "project_name": "AllScale",
+      "logo": "https://unavatar.io/x/allscaleio",
+      "chain": "bsc",
+      "priority": "medium",
+      "web_link": "https://www.allscale.io/",
+      "x_link": "https://x.com/allscaleio",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "mobile",
+      "current_stage_title": "Mobile App Login",
+      "progress_percent": 30,
+      "stages": [
+        {
+          "id": "signup",
+          "title": "Sign Up",
+          "status": "done",
+          "note": "app.allscale.io/s/XzeZVaa"
+        },
+        {
+          "id": "rewards",
+          "title": "Promotions/Rewards",
+          "status": "pending"
+        },
+        {
+          "id": "mobile",
+          "title": "Mobile App Login",
+          "status": "active",
+          "note": "Claim 1,600 AS Points"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật mobile",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "rep",
+      "project_name": "REP",
+      "logo": "https://unavatar.io/x/rep_hq",
+      "chain": "base",
+      "priority": "medium",
+      "web_link": "https://app.r3p.xyz/u/M3FKJR",
+      "x_link": "https://x.com/rep_hq",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "rooms",
+      "current_stage_title": "Rooms & Referral",
+      "progress_percent": 25,
+      "stages": [
+        {
+          "id": "register",
+          "title": "Register",
+          "status": "done",
+          "note": "app.r3p.xyz"
+        },
+        {
+          "id": "social",
+          "title": "Social + Wallet",
+          "status": "done"
+        },
+        {
+          "id": "rooms",
+          "title": "Rooms & Referral",
+          "status": "active",
+          "note": "Base chain, join Rooms"
+        },
+        {
+          "id": "achievements",
+          "title": "Achievements",
+          "status": "pending"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật rooms",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "lake_energy",
+      "project_name": "Lake Energy",
+      "logo": "https://unavatar.io/x/LakeEnergy6l88",
+      "chain": "other",
+      "priority": "medium",
+      "web_link": "https://lakeenergy.com/register?invite=DGQ9LIRJ",
+      "x_link": "https://x.com/LakeEnergy6l88",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "packages",
+      "current_stage_title": "View Packages",
+      "progress_percent": 25,
+      "stages": [
+        {
+          "id": "register",
+          "title": "Register",
+          "status": "done",
+          "note": "lakeenergy.com $10 bonus"
+        },
+        {
+          "id": "verify",
+          "title": "Verify Email",
+          "status": "done"
+        },
+        {
+          "id": "packages",
+          "title": "View Packages",
+          "status": "pending",
+          "note": "DYOR - no deposit"
+        },
+        {
+          "id": "announcement",
+          "title": "Next Announcements",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật packages",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "loaf_markets",
+      "project_name": "Loaf Markets",
+      "logo": "https://unavatar.io/x/Loafmarkets",
+      "chain": "other",
+      "priority": "medium",
+      "web_link": "https://beta.loafmarkets.com/?ref=8KSR9A",
+      "x_link": "https://x.com/Loafmarkets",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "league",
+      "current_stage_title": "League of Loaf",
+      "progress_percent": 20,
+      "stages": [
+        {
+          "id": "waitlist",
+          "title": "Waitlist",
+          "status": "done"
+        },
+        {
+          "id": "league",
+          "title": "League of Loaf",
+          "status": "pending"
+        },
+        {
+          "id": "testnet",
+          "title": "Testnet Trade",
+          "status": "pending",
+          "note": "beta.loafmarkets.com"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật league",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "raycash",
+      "project_name": "Raycash",
+      "logo": "https://unavatar.io/x/raycashxyz",
+      "chain": "other",
+      "priority": "medium",
+      "web_link": "https://www.raycash.xyz/r/82JQE9",
+      "x_link": "https://x.com/raycashxyz",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "login",
+      "current_stage_title": "Login Code",
+      "progress_percent": 20,
+      "stages": [
+        {
+          "id": "waitlist",
+          "title": "Waitlist Email",
+          "status": "done",
+          "note": "raycash.xyz/r/82JQE9"
+        },
+        {
+          "id": "login",
+          "title": "Login Code",
+          "status": "pending",
+          "note": "Check inbox"
+        },
+        {
+          "id": "tasks",
+          "title": "Tasks/Surveys",
+          "status": "pending"
+        },
+        {
+          "id": "referral",
+          "title": "Invite Friends",
+          "status": "pending",
+          "note": "Farm $RP"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật login",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "forecast",
+      "project_name": "Forecast",
+      "logo": "https://unavatar.io/x/ForecastFDN",
+      "chain": "ethereum",
+      "priority": "medium",
+      "web_link": "https://forecastprotocol.xyz/mainnet-whitelist/",
+      "x_link": "https://x.com/ForecastFDN",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "arkada",
+      "current_stage_title": "Arkada Quest",
+      "progress_percent": 15,
+      "stages": [
+        {
+          "id": "arkada",
+          "title": "Arkada Quest",
+          "status": "pending",
+          "note": "Forecast mainnet whitelist"
+        },
+        {
+          "id": "points",
+          "title": "Points/SBT/Spin",
+          "status": "pending"
+        },
+        {
+          "id": "whitelist",
+          "title": "Whitelist ETH",
+          "status": "pending",
+          "note": "Register wallet form"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật arkada",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "derpetual",
+      "project_name": "Derpetual",
+      "logo": "https://unavatar.io/x/derpetual",
+      "chain": "other",
+      "priority": "medium",
+      "web_link": "https://early.derpetual.com/r/Drophunterx",
+      "x_link": "https://x.com/derpetual",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "username",
+      "current_stage_title": "Choose Username",
+      "progress_percent": 15,
+      "stages": [
+        {
+          "id": "username",
+          "title": "Choose Username",
+          "status": "pending",
+          "note": "+5 SVG"
+        },
+        {
+          "id": "social",
+          "title": "Follow X + Founder",
+          "status": "pending",
+          "note": "+10 SVG each"
+        },
+        {
+          "id": "wallet",
+          "title": "Connect Wallet",
+          "status": "pending",
+          "note": "+5 SVG"
+        },
+        {
+          "id": "discord",
+          "title": "Join Discord",
+          "status": "pending",
+          "note": "+10 SVG"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật username",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "startale",
+      "project_name": "Startale",
+      "logo": "https://unavatar.io/x/StartaleGroup",
+      "chain": "soneium",
+      "priority": "medium",
+      "web_link": "https://app.startale.com/",
+      "x_link": "https://x.com/StartaleGroup",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "register",
+      "current_stage_title": "Register",
+      "progress_percent": 10,
+      "stages": [
+        {
+          "id": "register",
+          "title": "Register",
+          "status": "pending",
+          "note": "app.startale.com"
+        },
+        {
+          "id": "wallet",
+          "title": "Connect Wallet",
+          "status": "pending",
+          "note": "Soneium chain"
+        },
+        {
+          "id": "tasks",
+          "title": "Activities",
+          "status": "pending"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        },
+        {
+          "id": "tge",
+          "title": "TGE",
+          "status": "locked"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật register",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "rialo",
+      "project_name": "Rialo",
+      "logo": "https://unavatar.io/x/RialoHQ",
+      "chain": "rialo",
+      "priority": "medium",
+      "web_link": "https://playground.rialo.io",
+      "x_link": "https://x.com/RialoHQ",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "signin",
+      "current_stage_title": "Sign In",
+      "progress_percent": 10,
+      "stages": [
+        {
+          "id": "signin",
+          "title": "Sign In",
+          "status": "pending",
+          "note": "playground.rialo.io"
+        },
+        {
+          "id": "activities",
+          "title": "Activities",
+          "status": "pending"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật signin",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "dac",
+      "project_name": "DAC",
+      "logo": "https://unavatar.io/x/dac_chain",
+      "chain": "unknown",
+      "priority": "medium",
+      "web_link": "https://inception.dachain.io/faucet",
+      "x_link": "https://x.com/dac_chain",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "faucet",
+      "current_stage_title": "Faucet DACC",
+      "progress_percent": 10,
+      "stages": [
+        {
+          "id": "faucet",
+          "title": "Faucet DACC",
+          "status": "pending",
+          "note": "inception.dachain.io"
+        },
+        {
+          "id": "testnet",
+          "title": "Testnet Quests",
+          "status": "pending"
+        },
+        {
+          "id": "checker",
+          "title": "Airdrop Checker",
+          "status": "pending"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật faucet",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    },
+    {
+      "project_id": "arccats",
+      "project_name": "ArcCats",
+      "logo": "https://unavatar.io/x/arccats_xyz",
+      "chain": "arc",
+      "priority": "medium",
+      "web_link": "https://arccats.xyz",
+      "x_link": "https://x.com/arccats_xyz",
+      "status": "active",
+      "task_date": null,
+      "tge_date": null,
+      "current_stage": "submit",
+      "current_stage_title": "Submit EVM Wallet",
+      "progress_percent": 10,
+      "stages": [
+        {
+          "id": "submit",
+          "title": "Submit EVM Wallet",
+          "status": "pending",
+          "note": "arccats.xyz early access"
+        },
+        {
+          "id": "snapshot",
+          "title": "Snapshot",
+          "status": "pending"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "action": "Tạo baseline",
+          "status": "done"
+        },
+        {
+          "date": "2026-09-21",
+          "action": "Cập nhật submit",
+          "status": "active"
+        }
+      ],
+      "updated_at": "2026-09-21T16:00:00+07:00"
+    }
+  ]
+}

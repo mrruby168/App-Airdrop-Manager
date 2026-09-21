@@ -1,0 +1,1539 @@
+# AIRDROP MANAGEMENT DASHBOARD
+
+## 1. Mục tiêu
+
+Xây dựng một app dashboard HTML chạy local để quản lý toàn bộ kèo airdrop, gồm:
+
+* Tin tức cập nhật hàng ngày.
+* Task Daily và task mới phát hiện.
+* Toàn bộ task gốc của từng dự án.
+* Tiến trình từng dự án theo các milestone.
+* Thống kê chi phí, reward và doanh thu từng kèo.
+* Thông báo task quan trọng theo từng dự án.
+
+### Nguyên tắc quan trọng
+
+> **AI được phép cập nhật DATA nhưng không được sửa cấu trúc/UI của app.**
+
+App phải chịu được việc AI cập nhật dữ liệu mỗi ngày mà không làm:
+
+* hỏng HTML;
+* hỏng JavaScript;
+* sai schema;
+* mất dữ liệu cũ;
+* ghi đè task gốc;
+* làm vỡ giao diện.
+
+---
+
+# 2. Công nghệ
+
+## Công nghệ chính
+
+* HTML5
+* CSS3
+* Vanilla JavaScript
+* JSON
+* JSON Schema
+
+## Không dùng ở phiên bản đầu
+
+* React
+* Vue
+* Angular
+* Database server
+* Backend phức tạp
+
+### Lý do
+
+App cần:
+
+* nhẹ;
+* chạy local;
+* dễ đọc bằng AI;
+* dễ sửa data bằng AI;
+* dễ backup;
+* dễ Git;
+* dễ mở rộng.
+
+Sau này có thể đóng gói bằng **Tauri** thành Windows app mà không cần thay đổi kiến trúc data chính.
+
+---
+
+# 3. Kiến trúc thư mục
+
+```text
+AIRDROP-DASHBOARD/
+│
+├── index.html
+│
+├── css/
+│   └── app.css
+│
+├── js/
+│   ├── app.js
+│   ├── tabs.js
+│   ├── news.js
+│   ├── tasks.js
+│   ├── progress.js
+│   └── statistics.js
+│
+├── data/
+│   ├── projects.json
+│   ├── baseline_tasks.json
+│   ├── daily_tasks.json
+│   ├── new_tasks.json
+│   ├── news.json
+│   ├── progress.json
+│   ├── notifications.json
+│   └── statistics.json
+│
+├── schema/
+│   ├── projects.schema.json
+│   ├── tasks.schema.json
+│   ├── news.schema.json
+│   ├── progress.schema.json
+│   ├── notifications.schema.json
+│   └── statistics.schema.json
+│
+└── backup/
+```
+
+---
+
+# 4. Quy tắc DATA / UI
+
+## AI được phép sửa
+
+```text
+/data/*
+```
+
+## AI không được sửa khi cập nhật dữ liệu hàng ngày
+
+```text
+index.html
+/css/*
+/js/*
+/schema/*
+```
+
+Trừ khi người dùng yêu cầu sửa app.
+
+### Nguyên tắc
+
+```text
+AI
+ ↓
+READ DATA
+ ↓
+EXTRACT
+ ↓
+NORMALIZE
+ ↓
+VERIFY
+ ↓
+UPDATE JSON
+ ↓
+VALIDATE SCHEMA
+ ↓
+APP LOAD DATA
+ ↓
+RENDER UI
+```
+
+---
+
+# 5. Năm TAB chính
+
+```text
+[ TIN TỨC ]
+[ TASK MỚI ]
+[ ALL TASK PROJECT ]
+[ TIẾN TRÌNH ]
+[ THỐNG KÊ ]
+```
+
+Thông báo không tạo thành tab thứ 6.
+
+Thông báo được hiển thị thông qua:
+
+```text
+🔔 Notification
+```
+
+ở phần Header của app.
+
+---
+
+# 6. TAB 1 — TIN TỨC
+
+Đây là tab dùng để xem **nhanh, gọn và dễ đọc** toàn bộ tin tức mới của các dự án.
+
+## Mục tiêu UI
+
+Không biến tab Tin tức thành dashboard quá nhiều thông tin.
+
+Mỗi tin chỉ tập trung vào 3 thành phần chính:
+
+```text
+Tên dự án
+↓
+Tin tức đã dịch + tóm tắt ngắn gọn bằng tiếng Việt
+↓
+Source + nút Xem ngay
+```
+
+Không hiển thị quá nhiều metadata trên card tin.
+
+---
+
+## 6.1. Cấu trúc một News Card
+
+Mỗi tin được hiển thị thành một dòng/card gọn:
+
+```text
+┌──────────────────────────────────────────────────────────────────────┐
+│ CZR Genesis                                                        │
+│ Genesis Airdrop chính thức bắt đầu từ hôm nay. Người dùng có thể   │
+│ tham gia các nhiệm vụ Genesis để tích lũy reward trước TGE.         │
+│                                                                      │
+│ Source: X / Official                    [ XEM NGAY ↗ ]              │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### Thứ tự hiển thị bắt buộc
+
+**1. Tên dự án**
+
+* In đậm.
+* Nổi bật hơn phần nội dung.
+* Font lớn hơn nội dung một mức nhỏ.
+* Có thể kèm logo nhỏ nếu project có `logo`.
+* Không dùng hiệu ứng quá mạnh.
+
+Ví dụ:
+
+```text
+🔥 CZR Genesis
+```
+
+Tên project là phần người dùng nhìn thấy đầu tiên.
+
+---
+
+**2. Tin tức**
+
+Nội dung phải:
+
+* dịch sang **tiếng Việt**;
+* tóm tắt ngắn gọn;
+* đủ ý chính;
+* dễ đọc;
+* không dịch máy dài dòng;
+* không sao chép nguyên bài viết;
+* giữ nguyên ý nghĩa quan trọng;
+* ưu tiên thông tin có ảnh hưởng trực tiếp tới việc farm.
+
+Ví dụ:
+
+```text
+Genesis Airdrop chính thức bắt đầu hôm nay.
+Người dùng có thể tham gia các nhiệm vụ để tích lũy reward
+trước TGE.
+```
+
+Không hiển thị đoạn văn quá dài.
+
+### Quy tắc độ dài
+
+Ưu tiên:
+
+```text
+1–3 câu ngắn
+```
+
+hoặc tối đa khoảng:
+
+```text
+2–4 dòng trên desktop
+```
+
+Nếu bài viết dài, AI phải **lọc và tóm tắt**, không đưa toàn bộ nội dung vào app.
+
+---
+
+**3. Source**
+
+Hiển thị ngắn gọn:
+
+```text
+Source: X
+Source: Official
+Source: Blog
+Source: Discord
+Source: Telegram
+```
+
+Source chỉ nhằm cho người dùng biết tin lấy từ đâu.
+
+---
+
+**4. Nút XEM NGAY**
+
+Mỗi tin phải có nút:
+
+```text
+[ XEM NGAY ↗ ]
+```
+
+Khi click:
+
+* mở đúng URL bài viết nguồn;
+* mở tab mới;
+* không chuyển hướng qua trang trung gian;
+* không làm thay đổi dữ liệu app.
+
+---
+
+# 6.2. Thiết kế UI News
+
+Phong cách:
+
+* sạch;
+* chuyên nghiệp;
+* nền sáng/tối hài hòa;
+* ít màu;
+* không neon;
+* khoảng cách vừa phải;
+* dễ quét nhiều tin liên tiếp.
+
+### Không dùng
+
+* card quá cao;
+* gradient quá mạnh;
+* icon quá lớn;
+* nhiều badge;
+* nhiều metadata;
+* biểu đồ trong tab Tin tức;
+* animation gây rối mắt.
+
+### Ưu tiên
+
+```text
+PROJECT NAME
+↓
+SUMMARY
+↓
+SOURCE + XEM NGAY
+```
+
+---
+
+# 6.3. Bố cục nhiều tin
+
+Ví dụ:
+
+```text
+TIN TỨC
+────────────────────────────────────────────────────────────
+
+🔥 CZR Genesis
+
+Genesis Airdrop chính thức bắt đầu hôm nay.
+Người dùng có thể tham gia các nhiệm vụ để tích lũy reward
+trước TGE.
+
+Source: Official X                     [ XEM NGAY ↗ ]
+
+
+🟢 Soul Protocol
+
+Soul cập nhật tiến trình Season và tiếp tục mở các hoạt động
+tích lũy Seeds cho người dùng.
+
+Source: Official X                     [ XEM NGAY ↗ ]
+
+
+📢 Amadeus
+
+Daily quest hiện tiếp tục khả dụng và điểm có thể tích lũy
+thông qua các hoạt động trong hệ sinh thái.
+
+Source: Official Website               [ XEM NGAY ↗ ]
+```
+
+Mỗi tin tách nhau bằng khoảng cách hoặc đường phân cách rất nhẹ.
+
+---
+
+# 6.4. News DATA
+
+`news.json`
+
+Ví dụ:
+
+```json
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-21T16:00:00+07:00",
+  "items": [
+    {
+      "id": "news_czr_001",
+      "project_id": "czr_genesis",
+      "project_name": "CZR Genesis",
+      "summary_vi": "Genesis Airdrop chính thức bắt đầu hôm nay. Người dùng có thể tham gia các nhiệm vụ để tích lũy reward trước TGE.",
+      "source_name": "Official X",
+      "source_url": "https://example.com",
+      "source_status": "verified",
+      "published_at": "2026-09-21T10:00:00+07:00",
+      "created_at": "2026-09-21T15:00:00+07:00"
+    }
+  ]
+}
+```
+
+### Các trường bắt buộc
+
+```text
+id
+project_id
+project_name
+summary_vi
+source_name
+source_url
+source_status
+published_at
+created_at
+```
+
+---
+
+# 6.5. Quy tắc AI xử lý News
+
+AI phải thực hiện:
+
+```text
+SOURCE
+ ↓
+READ ARTICLE / POST
+ ↓
+VERIFY
+ ↓
+UNDERSTAND
+ ↓
+TRANSLATE TO VIETNAMESE
+ ↓
+SUMMARIZE
+ ↓
+NORMALIZE
+ ↓
+DEDUP
+ ↓
+SAVE news.json
+```
+
+### AI không được
+
+* tự bịa nội dung;
+* tự tạo source;
+* tự tạo URL;
+* dịch sai ý để làm thay đổi bản chất tin;
+* copy nguyên bài viết dài vào app;
+* tạo duplicate nếu cùng một tin;
+* thay đổi UI để thêm tin.
+
+Nếu source không truy cập được:
+
+```text
+source_status = inaccessible
+```
+
+Không được biến thông tin chưa kiểm chứng thành tin chính thức.
+
+---
+
+# 6.6. Mức độ tin tức
+
+Mức độ vẫn được giữ để AI phân loại nội bộ và có thể dùng cho icon/nhấn nhẹ trên UI:
+
+```text
+critical
+important
+normal
+info
+```
+
+Hiển thị trực quan tối giản:
+
+```text
+🚨 Critical
+🔥 Important
+📢 Normal
+ℹ️ Info
+```
+
+Không biến thành quá nhiều badge.
+
+---
+
+# 6.7. Sắp xếp tin
+
+Mặc định:
+
+```text
+Tin mới nhất
+↓
+Tin cũ hơn
+```
+
+Ưu tiên:
+
+1. Tin mới.
+2. Tin quan trọng.
+3. Tin có ảnh hưởng trực tiếp tới task/TGE/claim/deadline.
+
+Có thể lọc theo:
+
+```text
+Tất cả
+Quan trọng
+Theo project
+```
+
+Nhưng giao diện mặc định vẫn phải gọn.
+
+---
+
+# 6.8. THÔNG BÁO TASK THEO DỰ ÁN
+
+Các thông báo liên quan đến task mới của dự án phải có **logo dự án** và giữ một format thống nhất.
+
+### Form bắt buộc
+
+```text
+[LOGO] Project Name
+🔗 Website
+
+✅ TASK CẦN LÀM
+
+👉 Task 1
+👉 Task 2
+👉 Task 3
+```
+
+Ví dụ:
+
+```text
+┌────────────────────────────────────────────────────────────┐
+│ 🔴  Forecast                                               │
+│ 🔗 https://forecastprotocol.xyz/mainnet-whitelist/         │
+│                                                            │
+│ ✅ TASK CẦN LÀM                                           │
+│                                                            │
+│ 👉 Complete Arkada quest                                  │
+│ 👉 Claim points / SBT / spin                              │
+│ 👉 Register ETH wallet in mainnet whitelist form          │
+└────────────────────────────────────────────────────────────┘
+```
+
+### Logo
+
+Logo phải lấy từ:
+
+```text
+projects.json → logo
+```
+
+AI không được tự tạo hoặc tự đoán logo.
+
+Nếu project không có logo:
+
+```text
+Không có logo → dùng placeholder UI cố định
+```
+
+Không được tạo URL logo giả.
+
+### Tên dự án
+
+Tên dự án:
+
+* in đậm;
+* nổi bật;
+* luôn nằm cạnh logo;
+* là tiêu đề chính của thông báo.
+
+### Website
+
+Hiển thị:
+
+```text
+🔗 Website
+```
+
+Click vào website phải mở URL của project.
+
+Không được tự sinh URL mới nếu project không có `web_link`.
+
+### Task
+
+Mỗi task phải là **một item riêng trong `s`**.
+
+Ví dụ:
+
+```js
+s: [
+  "Complete Arkada quest",
+  "Claim points / SBT / spin",
+  "Register ETH wallet in mainnet whitelist form"
+]
+```
+
+UI hiển thị:
+
+```text
+👉 Complete Arkada quest
+👉 Claim points / SBT / spin
+👉 Register ETH wallet in mainnet whitelist form
+```
+
+### Không được gộp task
+
+Sai:
+
+```text
+👉 Complete Arkada quest, claim points / SBT / spin, register ETH wallet
+```
+
+Đúng:
+
+```text
+👉 Complete Arkada quest
+👉 Claim points / SBT / spin
+👉 Register ETH wallet
+```
+
+### Không thêm `👉` vào DATA
+
+DATA phải giữ sạch:
+
+```js
+s: [
+  "Task 1",
+  "Task 2",
+  "Task 3"
+]
+```
+
+`tasks_dashboard.html` chịu trách nhiệm thêm prefix:
+
+```text
+👉
+```
+
+khi render.
+
+### Không sửa nội dung task
+
+AI không được:
+
+* đổi nghĩa task;
+* tự thêm task;
+* tự xóa task;
+* gộp task;
+* chia task thành task mới không có trong source;
+* tự thêm deadline;
+* tự thêm reward;
+* tự thêm URL;
+* tự thêm hướng dẫn không có nguồn.
+
+Nội dung task phải trung thành với DATA nguồn.
+
+---
+
+# 6.9. Notification Card
+
+Notification task sử dụng layout nhỏ gọn, dễ quét:
+
+```text
+┌──────────────────────────────────────────────────────┐
+│ [LOGO] CZR Genesis                            🔥     │
+│                                                      │
+│ ✅ TASK CẦN LÀM                                     │
+│ 👉 Genesis Quest                                    │
+│ 👉 Complete social task                             │
+│ 👉 Daily activity                                   │
+│                                                      │
+│ 21/09/2026                          [ XEM TASK ↗ ]   │
+└──────────────────────────────────────────────────────┘
+```
+
+Không nhồi quá nhiều metadata vào notification card.
+
+Nếu có nhiều task:
+
+```text
+👉 Task 1
+👉 Task 2
+👉 Task 3
+...
+```
+
+### Nút
+
+Có thể có:
+
+```text
+[XEM TASK ↗]
+```
+
+Click sẽ chuyển trực tiếp tới:
+
+```text
+TAB TASK MỚI
+```
+
+và lọc đúng project.
+
+---
+
+# 7. TAB 2 — TASK MỚI
+
+Đây là tab dùng để theo dõi những task cần chú ý nhất.
+
+## Tab chỉ hiển thị
+
+### A. Daily Task hiện tại
+
+Toàn bộ daily task đang active của các dự án.
+
+### B. New Task
+
+Task mới phát hiện đối với các kèo ONE-TIME.
+
+---
+
+# 8. Quy tắc phát hiện NEW TASK
+
+Mỗi kèo ONE-TIME phải có:
+
+```text
+baseline_tasks
+```
+
+Đây là danh sách task gốc tại thời điểm bắt đầu theo dõi.
+
+AI không được ghi đè baseline.
+
+### Công thức
+
+```text
+NEW TASK
+=
+CURRENT ONE-TIME TASK
+-
+BASELINE TASK
+```
+
+Nếu task tồn tại trong baseline:
+
+```text
+existing
+```
+
+Nếu không tồn tại:
+
+```text
+new
+```
+
+Nếu task đã từng được phát hiện trước đó:
+
+```text
+known_new
+```
+
+Không được tạo bản duplicate.
+
+---
+
+# 9. TAB 3 — ALL TASK PROJECT
+
+Hiển thị toàn bộ task gốc của tất cả dự án.
+
+Mục tiêu:
+
+* xem project có những task gì;
+* xem task ban đầu;
+* xem loại task;
+* xem task nào Daily / One-time;
+* xem task đang active hay không.
+
+## Không dùng tab này để thay thế baseline
+
+Baseline phải được giữ nguyên để làm mốc so sánh.
+
+---
+
+# 10. TAB 4 — TIẾN TRÌNH
+
+Đây là tab trực quan quan trọng nhất.
+
+## Layout
+
+### Dạng ngang
+
+Mỗi project chiếm **1 hàng ngang**.
+
+Không dùng card dọc quá cao.
+
+Ví dụ:
+
+```text
+CZR Genesis
+████████████████░░░░ 80%
+
+✅ Join
+   →
+✅ Connect Wallet
+   →
+✅ Genesis Quest
+   →
+🔵 Daily 8/10
+   →
+⚪ Snapshot
+   →
+🔒 TGE
+```
+
+---
+
+# 11. Cấu trúc tiến trình
+
+Mỗi project có một chuỗi milestone.
+
+Ví dụ:
+
+```text
+REGISTER
+↓
+CONNECT WALLET
+↓
+INITIAL TASKS
+↓
+SEASON / POINTS
+↓
+DAILY FARM
+↓
+SNAPSHOT
+↓
+ELIGIBILITY
+↓
+TGE
+↓
+CLAIM
+```
+
+Không phải project nào cũng bắt buộc có tất cả milestone.
+
+Mỗi project có timeline riêng.
+
+---
+
+# 12. Trạng thái milestone
+
+```text
+✅ done
+🔵 active
+⚪ pending
+🔒 locked
+🔴 error
+```
+
+## Ví dụ
+
+```text
+CZR Genesis    ████████████████░░░░ 80%
+
+✅ Join
+→
+✅ Wallet
+→
+✅ Quest
+→
+🔵 Daily 8/10
+→
+⚪ Snapshot
+→
+🔒 TGE
+```
+
+Hiển thị:
+
+```text
+Current Stage:
+DAILY TASKS
+```
+
+---
+
+# 13. Progress Bar
+
+Mỗi project hiển thị:
+
+```text
+Project | Progress | Timeline | Current Stage | Action
+```
+
+Ví dụ:
+
+```text
+CZR Genesis | 80% | ✅ → ✅ → ✅ → 🔵 → ⚪ → 🔒 | Daily | Chi tiết
+```
+
+## Click project
+
+Mở chi tiết:
+
+* milestone;
+* task liên quan;
+* tiến trình;
+* deadline;
+* ghi chú;
+* lịch sử cập nhật.
+
+---
+
+# 14. Quy tắc DONE
+
+AI **không tự đánh dấu task DONE** nếu DONE đại diện cho thao tác người dùng đã thực hiện.
+
+AI chỉ được cập nhật:
+
+```text
+new
+active
+pending
+available
+expired
+changed
+```
+
+Người dùng/app mới xác nhận:
+
+```text
+done
+```
+
+Mục tiêu:
+
+> Không để AI báo hoàn thành một task mà người dùng chưa thực sự làm.
+
+---
+
+# 15. TAB 5 — THỐNG KÊ
+
+Hiển thị bảng thống kê tài chính theo từng project.
+
+## Bảng chính
+
+| Project     | Cost | Reward | Revenue |  P/L |   ROI |
+| ----------- | ---: | -----: | ------: | ---: | ----: |
+| CZR Genesis |   $5 |    $80 |     $80 | +$75 | 1500% |
+| Soul        |   $0 |    $40 |     $40 | +$40 |     — |
+| Amadeus     |  $10 |   $100 |    $100 | +$90 |  900% |
+
+Các giá trị trên chỉ là ví dụ UI.
+
+---
+
+# 16. Chỉ số tổng
+
+Đầu tab thống kê:
+
+```text
+TOTAL PROJECT
+TOTAL COST
+TOTAL REWARD
+TOTAL REVENUE
+TOTAL P/L
+TOTAL ROI
+```
+
+Có thể thêm:
+
+```text
+REALIZED
+UNREALIZED
+PENDING
+```
+
+để phân biệt reward đã claim và reward chưa claim.
+
+---
+
+# 17. Project DATA
+
+`projects.json`
+
+Mỗi project tối thiểu có:
+
+```json
+{
+  "id": "czr_genesis",
+  "name": "CZR Genesis",
+  "status": "active",
+  "web_link": "",
+  "x_post_link": "",
+  "logo": "",
+  "note": "",
+  "created_at": "",
+  "updated_at": ""
+}
+```
+
+Project ID phải duy nhất.
+
+---
+
+# 18. TASK DATA
+
+Mỗi task dùng ID duy nhất.
+
+Ví dụ:
+
+```json
+{
+  "id": "czr_genesis_001",
+  "project_id": "czr_genesis",
+  "type": "daily",
+  "title": "Daily Check-in",
+  "description": "",
+  "link": "",
+  "points": 100,
+  "status": "active",
+  "source": "",
+  "created_at": "",
+  "updated_at": ""
+}
+```
+
+## Type
+
+```text
+daily
+one_time
+new
+```
+
+---
+
+# 19. BASELINE TASK
+
+`baseline_tasks.json`
+
+Đây là **snapshot task ban đầu**.
+
+Ví dụ:
+
+```json
+{
+  "project_id": "czr_genesis",
+  "snapshot_date": "2026-09-21",
+  "tasks": []
+}
+```
+
+Không được tự động xóa hoặc ghi đè.
+
+Chỉ thay đổi khi người dùng yêu cầu reset baseline.
+
+---
+
+# 20. NEW TASK DATA
+
+`new_tasks.json`
+
+Lưu các task được phát hiện sau baseline.
+
+Ví dụ:
+
+```json
+{
+  "id": "czr_genesis_new_001",
+  "project_id": "czr_genesis",
+  "title": "Genesis Quest",
+  "type": "one_time",
+  "detected_date": "2026-09-21",
+  "source": "",
+  "status": "new"
+}
+```
+
+Nếu task đã tồn tại thì không tạo duplicate.
+
+---
+
+# 21. PROGRESS DATA
+
+`progress.json`
+
+Ví dụ:
+
+```json
+{
+  "project_id": "czr_genesis",
+  "current_stage": "daily",
+  "progress_percent": 80,
+  "stages": [
+    {
+      "id": "join",
+      "title": "Join",
+      "status": "done"
+    },
+    {
+      "id": "wallet",
+      "title": "Connect Wallet",
+      "status": "done"
+    },
+    {
+      "id": "quest",
+      "title": "Genesis Quest",
+      "status": "done"
+    },
+    {
+      "id": "daily",
+      "title": "Daily Tasks",
+      "status": "active"
+    },
+    {
+      "id": "snapshot",
+      "title": "Snapshot",
+      "status": "pending"
+    },
+    {
+      "id": "tge",
+      "title": "TGE",
+      "status": "locked"
+    }
+  ]
+}
+```
+
+---
+
+# 22. NOTIFICATIONS DATA
+
+`notifications.json`
+
+Ví dụ:
+
+```json
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-21T16:00:00+07:00",
+  "items": [
+    {
+      "id": "notif_czr_001",
+      "project_id": "czr_genesis",
+      "project_name": "CZR Genesis",
+      "logo": "",
+      "type": "new_task",
+      "priority": "important",
+      "website": "",
+      "title": "TASK CẦN LÀM",
+      "tasks": [
+        "Genesis Quest",
+        "Complete social task",
+        "Daily activity"
+      ],
+      "created_at": "2026-09-21T16:00:00+07:00",
+      "read": false
+    }
+  ]
+}
+```
+
+### Quy tắc
+
+* `project_id` phải tồn tại trong `projects.json`.
+* `logo` ưu tiên lấy từ project DATA.
+* `tasks` là danh sách task riêng biệt.
+* Không gộp nhiều task thành một chuỗi.
+* Không thêm `👉` vào DATA.
+* UI tự thêm `👉`.
+* `read` dùng cho trạng thái đã đọc/chưa đọc.
+* Notification ID phải duy nhất.
+
+---
+
+# 23. STATISTICS DATA
+
+`statistics.json`
+
+Ví dụ:
+
+```json
+{
+  "project_id": "czr_genesis",
+  "cost": 5,
+  "reward": 80,
+  "revenue": 80,
+  "profit": 75,
+  "roi": 1500,
+  "currency": "USD",
+  "status": "realized",
+  "updated_at": "2026-09-21"
+}
+```
+
+---
+
+# 24. DATA VALIDATION
+
+Trước khi app sử dụng JSON:
+
+```text
+LOAD
+ ↓
+CHECK JSON
+ ↓
+CHECK SCHEMA
+ ↓
+CHECK REQUIRED FIELDS
+ ↓
+CHECK UNIQUE ID
+ ↓
+CHECK PROJECT REFERENCES
+ ↓
+CHECK DUPLICATE TASK
+ ↓
+RENDER
+```
+
+Nếu lỗi:
+
+```text
+DATA ERROR
+```
+
+App không được crash toàn bộ.
+
+---
+
+# 25. BACKUP / RECOVERY
+
+Mỗi lần AI cập nhật data:
+
+```text
+data/current
+     ↓
+backup previous version
+     ↓
+write new data
+     ↓
+validate
+     ↓
+success → current
+failure → restore previous
+```
+
+Không được để một JSON lỗi khiến dashboard không mở được.
+
+---
+
+# 26. VERSION DATA
+
+Mỗi file JSON nên có:
+
+```json
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-21T16:00:00+07:00",
+  "data": []
+}
+```
+
+Khi schema thay đổi:
+
+```text
+v1 → v2 → v3
+```
+
+App phải có khả năng nhận biết version.
+
+---
+
+# 27. AI UPDATE RULE
+
+Mỗi ngày AI thực hiện:
+
+```text
+1. Đọc projects.json
+2. Đọc baseline_tasks.json
+3. Đọc daily_tasks.json
+4. Đọc new_tasks.json
+5. Đọc news.json
+6. Đọc progress.json
+7. Đọc notifications.json
+8. Đọc statistics.json
+
+9. Scan source
+10. Extract thông tin
+11. Normalize
+12. Verify
+13. Deduplicate
+14. Detect new task
+15. Update data
+16. Validate schema
+17. Backup dữ liệu cũ
+18. Ghi dữ liệu mới
+```
+
+---
+
+# 28. AI KHÔNG ĐƯỢC
+
+* sửa HTML để cập nhật task;
+* sửa JS để cập nhật tin;
+* xóa baseline task;
+* đổi ID đã tồn tại;
+* tạo duplicate;
+* tự đánh dấu DONE;
+* tự tạo news không có nguồn;
+* tự tạo logo;
+* tự tạo URL logo;
+* tự thêm task chưa được xác minh;
+* thay đổi schema nếu không có yêu cầu;
+* xóa dữ liệu lịch sử chỉ vì task đã hết hạn;
+* gộp nhiều task thành một dòng;
+* thêm `👉` trực tiếp vào task DATA.
+
+---
+
+# 29. APP PHẢI HOẠT ĐỘNG KHI DATA THAY ĐỔI
+
+UI phải render động dựa trên JSON.
+
+Ví dụ hôm nay:
+
+```text
+8 project
+```
+
+Ngày mai:
+
+```text
+11 project
+```
+
+App tự hiển thị 11 project.
+
+Không cần sửa HTML.
+
+Tương tự:
+
+```text
+20 task
+→
+38 task
+→
+52 task
+```
+
+UI vẫn hoạt động.
+
+Notification cũng phải tự động render theo số lượng DATA hiện có.
+
+---
+
+# 30. RESPONSIVE
+
+Ưu tiên desktop Windows.
+
+### Desktop
+
+Timeline và bảng hiển thị ngang đầy đủ.
+
+### Mobile
+
+Timeline có horizontal scroll.
+
+Task/project card không bị vỡ.
+
+Notification có thể chuyển sang layout dọc khi màn hình hẹp.
+
+---
+
+# 31. HIỆU NĂNG
+
+Mục tiêu:
+
+* mở app nhanh;
+* không framework nặng;
+* không animation dư thừa;
+* không gọi API liên tục;
+* chỉ load JSON cần thiết;
+* render theo tab;
+* notification không làm chậm dashboard.
+
+---
+
+# 32. NGUYÊN TẮC UX
+
+Giao diện:
+
+* sạch;
+* chuyên nghiệp;
+* dễ đọc;
+* màu tự nhiên;
+* không neon;
+* thông tin quan trọng nổi bật;
+* tránh card quá lớn.
+
+## Ưu tiên
+
+```text
+Thông tin → Trạng thái → Deadline → Action
+```
+
+### Riêng TAB TIN TỨC
+
+Ưu tiên:
+
+```text
+Project Name
+→
+Tin tức tiếng Việt tóm tắt
+→
+Source
+→
+XEM NGAY
+```
+
+### Riêng THÔNG BÁO TASK
+
+Ưu tiên:
+
+```text
+Logo + Project Name
+→
+Website
+→
+✅ TASK CẦN LÀM
+→
+👉 Task 1
+👉 Task 2
+👉 Task 3
+→
+XEM TASK
+```
+
+Thông tin phải gọn, không nhồi metadata không cần thiết.
+
+---
+
+# 33. LUỒNG SỬ DỤNG HÀNG NGÀY
+
+```text
+AI CHECK NEWS
+       ↓
+Cập nhật news.json
+       ↓
+CHECK TASK
+       ↓
+So sánh baseline
+       ↓
+Phát hiện NEW TASK
+       ↓
+Cập nhật new_tasks.json
+       ↓
+Tạo / cập nhật notifications.json
+       ↓
+Cập nhật progress
+       ↓
+Cập nhật statistics nếu có reward/revenue
+       ↓
+APP HIỂN THỊ
+```
+
+---
+
+# 34. MỤC TIÊU KIẾN TRÚC
+
+Kiến trúc cuối cùng:
+
+```text
+                    AI
+                     │
+                     ▼
+              ┌─────────────┐
+              │ JSON DATA   │
+              └──────┬──────┘
+                     │
+                VALIDATION
+                     │
+                     ▼
+             ┌──────────────┐
+             │ HTML + JS    │
+             │ UI CỐ ĐỊNH   │
+             └──────┬───────┘
+                    │
+       ┌────────────┼──────────────┐
+       ▼            ▼              ▼
+     DATA         LOGIC            UI
+   JSON files    JS engine       5 Tabs
+```
+
+## Nguyên tắc cốt lõi
+
+> **CODE STABLE — DATA DYNAMIC**
+
+Code app càng ít thay đổi càng tốt.
+
+AI cập nhật **data**, không cập nhật **app**.
+
+Baseline giữ nguyên để phát hiện task mới.
+
+Progress hiển thị **theo milestone ngang**.
+
+Statistics quản lý:
+
+```text
+Chi phí
+→ Reward
+→ Doanh thu
+→ P/L
+→ ROI
+```
+
+News hiển thị:
+
+```text
+Tên dự án
+→
+Tóm tắt tiếng Việt
+→
+Source
+→
+Xem ngay
+```
+
+Notification task hiển thị:
+
+```text
+Logo dự án
+→
+Tên dự án
+→
+Website
+→
+✅ TASK CẦN LÀM
+→
+👉 từng task một dòng
+→
+XEM TASK
+```
+
+Đây là kiến trúc nền để sau này có thể gắn AI scanner/API/backend mà không phải viết lại dashboard.

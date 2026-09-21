@@ -1,0 +1,333 @@
+{
+  "app": {
+    "name": "AIRDROP DASHBOARD",
+    "subtitle": "Daily Monitor",
+    "date": "21 SEP 2026",
+    "notificationCount": 5,
+    "window": {
+      "type": "desktop",
+      "aspectRatio": "16:9",
+      "chrome": false,
+      "fullscreen": true
+    }
+  },
+  "theme": {
+    "fontFamily": "Inter, Segoe UI, sans-serif",
+    "background": "#F8FAFC",
+    "surface": "#FFFFFF",
+    "text": "#17233C",
+    "mutedText": "#6B7A90",
+    "border": "#DCE5EE",
+    "accent": "#0B9BB6",
+    "success": "#42A66A",
+    "warning": "#F2A23A",
+    "critical": "#E85D5D",
+    "radius": 10,
+    "shadow": "0 1px 6px rgba(23,35,60,0.06)"
+  },
+  "header": {
+    "alerts": [
+      {
+        "icon": "critical",
+        "count": 2,
+        "label": "Critical"
+      },
+      {
+        "icon": "important",
+        "count": 3,
+        "label": "Important"
+      },
+      {
+        "icon": "updates",
+        "count": 5,
+        "label": "Updates"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "news",
+        "label": "TIN TỨC",
+        "active": true
+      },
+      {
+        "id": "new_tasks",
+        "label": "TASK MỚI",
+        "active": false
+      },
+      {
+        "id": "all_tasks",
+        "label": "ALL TASK PROJECT",
+        "active": false
+      },
+      {
+        "id": "progress",
+        "label": "TIẾN TRÌNH",
+        "active": false
+      },
+      {
+        "id": "stats",
+        "label": "THỐNG KÊ",
+        "active": false
+      }
+    ]
+  },
+  "main": {
+    "activeTab": "news",
+    "news": {
+      "title": "TIN TỨC",
+      "subtitle": "Cập nhật mới nhất từ các dự án",
+      "items": [
+        {
+          "project": "CZR Genesis",
+          "logo": "czr-genesis",
+          "summary": "Genesis Airdrop chính thức bắt đầu hôm nay. Người dùng có thể tham gia các nhiệm vụ để tích lũy reward trước TGE.",
+          "source": "Official X",
+          "sourceType": "x",
+          "action": "XEM NGAY ↗"
+        },
+        {
+          "project": "Soul Protocol",
+          "logo": "soul-protocol",
+          "summary": "Soul tiếp tục cập nhật hoạt động Season và các nhiệm vụ tích lũy Seeds dành cho người dùng.",
+          "source": "Official X",
+          "sourceType": "x",
+          "action": "XEM NGAY ↗"
+        },
+        {
+          "project": "Amadeus",
+          "logo": "amadeus",
+          "summary": "Daily quest tiếp tục hoạt động, cho phép người dùng tích lũy điểm thông qua các hoạt động trong hệ sinh thái.",
+          "source": "Official Website",
+          "sourceType": "website",
+          "action": "XEM NGAY ↗"
+        },
+        {
+          "project": "Asentum",
+          "logo": "asentum",
+          "summary": "Các hoạt động XP và daily quest vẫn đang được duy trì, người dùng có thể tiếp tục tích lũy điểm.",
+          "source": "Official X",
+          "sourceType": "x",
+          "action": "XEM NGAY ↗"
+        }
+      ]
+    },
+    "taskNotification": {
+      "title": "TASK NOTIFICATION",
+      "badge": "MỚI",
+      "project": "Forecast",
+      "logo": "forecast",
+      "source": "Website",
+      "taskTitle": "✅ TASK CẦN LÀM",
+      "tasks": [
+        "Complete Arkada quest",
+        "Claim points / SBT / spin",
+        "Register ETH wallet in mainnet whitelist form"
+      ],
+      "action": "XEM TASK ↗"
+    },
+    "progressPreview": {
+      "title": "TIẾN TRÌNH",
+      "projects": [
+        {
+          "project": "CZR Genesis",
+          "logo": "czr-genesis",
+          "percent": 80,
+          "bar": "████████████████░░░░",
+          "steps": [
+            {
+              "label": "Join",
+              "status": "done"
+            },
+            {
+              "label": "Wallet",
+              "status": "done"
+            },
+            {
+              "label": "Quest",
+              "status": "done"
+            },
+            {
+              "label": "Daily",
+              "status": "active"
+            },
+            {
+              "label": "Snapshot",
+              "status": "pending"
+            },
+            {
+              "label": "TGE",
+              "status": "locked"
+            }
+          ]
+        },
+        {
+          "project": "Amadeus",
+          "logo": "amadeus",
+          "percent": 60,
+          "bar": "███████████░░░░░░░",
+          "steps": [
+            {
+              "label": "Register",
+              "status": "done"
+            },
+            {
+              "label": "Wallet",
+              "status": "done"
+            },
+            {
+              "label": "Season",
+              "status": "active"
+            },
+            {
+              "label": "Snapshot",
+              "status": "pending"
+            },
+            {
+              "label": "TGE",
+              "status": "locked"
+            }
+          ]
+        }
+      ]
+    },
+    "statisticsPreview": {
+      "title": "THỐNG KÊ",
+      "summary": [
+        {
+          "label": "PROJECT",
+          "value": "24",
+          "unit": "PROJECT"
+        },
+        {
+          "label": "COST",
+          "value": "$125",
+          "unit": "COST"
+        },
+        {
+          "label": "REWARD",
+          "value": "$1,250",
+          "unit": "REWARD"
+        },
+        {
+          "label": "REVENUE",
+          "value": "$1,100",
+          "unit": "REVENUE"
+        },
+        {
+          "label": "P/L",
+          "value": "+$975",
+          "unit": "P/L"
+        },
+        {
+          "label": "ROI",
+          "value": "780%",
+          "unit": "ROI"
+        }
+      ],
+      "table": {
+        "columns": [
+          "Project",
+          "Cost",
+          "Reward",
+          "Revenue",
+          "P/L",
+          "ROI"
+        ],
+        "rows": [
+          [
+            "CZR Genesis",
+            "$5",
+            "$80",
+            "$80",
+            "+$75",
+            "1500%"
+          ],
+          [
+            "Soul",
+            "$0",
+            "$40",
+            "$40",
+            "+$40",
+            "—"
+          ],
+          [
+            "Amadeus",
+            "$10",
+            "$100",
+            "$100",
+            "+$90",
+            "900%"
+          ]
+        ]
+      }
+    }
+  },
+  "sidebar": {
+    "title": "THÔNG BÁO",
+    "tabs": [
+      {
+        "id": "all",
+        "label": "Tất cả",
+        "active": true
+      },
+      {
+        "id": "unread",
+        "label": "Chưa đọc",
+        "active": false
+      },
+      {
+        "id": "important",
+        "label": "Quan trọng",
+        "active": false
+      }
+    ],
+    "notifications": [
+      {
+        "project": "CZR Genesis",
+        "logo": "czr-genesis",
+        "title": "Genesis Airdrop bắt đầu hôm nay",
+        "time": "5 phút trước",
+        "unread": true,
+        "importance": "important"
+      },
+      {
+        "project": "Soul Protocol",
+        "logo": "soul-protocol",
+        "title": "Phát hiện task mới",
+        "time": "18 phút trước",
+        "unread": true,
+        "importance": "normal"
+      },
+      {
+        "project": "Amadeus",
+        "logo": "amadeus",
+        "title": "Daily task đã cập nhật",
+        "time": "32 phút trước",
+        "unread": true,
+        "importance": "normal"
+      }
+    ],
+    "markAllRead": "Đánh dấu tất cả đã đọc"
+  },
+  "layout": {
+    "type": "desktop-grid",
+    "columns": [
+      "1fr",
+      "304px"
+    ],
+    "gap": 0,
+    "regions": {
+      "header": "top",
+      "alertStrip": "below-header",
+      "navigation": "below-alerts",
+      "content": "main-left",
+      "notifications": "sidebar-right"
+    },
+    "contentOrder": [
+      "news",
+      "taskNotification",
+      "progressPreview",
+      "statisticsPreview"
+    ]
+  }
+}

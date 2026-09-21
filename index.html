@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIRDROP DASHBOARD — Daily Monitor</title>
+<link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+<!-- HEADER -->
+<header class="header">
+  <div class="header-top">
+    <div class="brand">
+      <div class="brand-icon"><span>◇</span></div>
+      <div>
+        <h1>AIRDROP DASHBOARD</h1>
+        <p>Daily Monitor</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-date" id="headerDate">21 SEP 2026</div>
+      <div class="bell" id="bellBtn" title="Thông báo">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 10a2 2 0 0 0-4 0c0 2-1.5 3-1.5 3H15s-1-1-1-3z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 16h6"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3a7 7 0 0 0-7 7v3l-1 2h16l-1-2v-3a7 7 0 0 0-7-7z"/></svg>
+        <span class="bell-badge" id="bellBadge">5</span>
+      </div>
+      <div class="window-dots"><span>—</span><span>☐</span><span>✕</span></div>
+    </div>
+  </div>
+  <div class="alert-strip" id="alertStrip">
+    <div class="alert critical">⚠️ <span><b id="criticalCount">2</b> Critical</span></div>
+    <div class="alert important">🔥 <span><b id="importantCount">3</b> Important</span></div>
+    <div class="alert updates">📢 <span><b id="updatesCount">5</b> Updates</span></div>
+  </div>
+  <nav class="tabs-nav" id="tabsNav">
+    <button class="tab-btn active" data-tab="news"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1.8" d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path stroke-width="1.8" d="M14 2v6h6"/><path stroke-width="1.8" d="M9 13h6M9 17h6M9 9h2"/></svg> TIN TỨC</button>
+    <button class="tab-btn" data-tab="new_tasks"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1.8" d="M9 12l2 2 4-4"/><path stroke-width="1.8" d="M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg> TASK MỚI</button>
+    <button class="tab-btn" data-tab="all_tasks"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1" stroke-width="1.8"/></svg> ALL TASK PROJECT</button>
+    <button class="tab-btn" data-tab="progress"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1.8" d="M3 17l6-6 4 4 8-8"/><path stroke-width="1.8" d="M14 7h7v7"/></svg> TIẾN TRÌNH</button>
+    <button class="tab-btn" data-tab="stats"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1.8" d="M18 20V10M12 20V4M6 20v-6"/></svg> THỐNG KÊ</button>
+  </nav>
+</header>
+
+<div class="layout">
+  <!-- MAIN -->
+  <main class="main">
+    <!-- PANEL: NEWS (default) -->
+    <section class="panel active" id="panel-news">
+      <div class="card">
+        <div class="card-header">📄 TIN TỨC <small>— Cập nhật mới nhất từ các dự án</small></div>
+        <div class="news-list" id="newsList"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">📊 THỐNG KÊ</div>
+        <div class="card-body">
+          <div class="stats-summary" id="statsSummary"></div>
+          <div style="overflow:auto">
+            <table class="stats-table" id="statsTable">
+              <thead><tr><th>Project</th><th>Cost</th><th>Reward</th><th>Revenue</th><th>P/L</th><th>ROI</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL: TASK MỚI -->
+    <section class="panel" id="panel-new_tasks">
+      <div class="card">
+        <div class="card-header">🔥 TASK MỚI — Daily + New detected ( baseline diff )</div>
+        <div class="card-body">
+          <div id="dailyTasksList"></div>
+          <div style="height:14px"></div>
+          <div id="newTasksList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL: ALL TASKS -->
+    <section class="panel" id="panel-all_tasks">
+      <div class="card">
+        <div class="card-header">📦 ALL TASK PROJECT — Toàn bộ task gốc (<span id="allTaskCount">0</span> projects)</div>
+        <div class="card-body">
+          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+            <select id="filterType" style="padding:7px 10px;border:1px solid var(--border);border-radius:7px;font-size:12px"><option value="all">Tất cả type</option><option value="daily">Daily</option><option value="one_time">One-time</option></select>
+            <select id="filterPrio" style="padding:7px 10px;border:1px solid var(--border);border-radius:7px;font-size:12px"><option value="all">Mọi priority</option><option value="critical">critical</option><option value="high">high</option><option value="medium">medium</option></select>
+            <input id="searchProject" placeholder="🔎 Tìm project..." style="flex:1;min-width:160px;padding:7px 10px;border:1px solid var(--border);border-radius:7px;font-size:12px">
+          </div>
+          <div class="task-grid" id="allTasksGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL: TIẾN TRÌNH -->
+    <section class="panel" id="panel-progress">
+      <div class="card">
+        <div class="card-header">🚀 TIẾN TRÌNH — Mỗi project 1 hàng ngang <small>— click Chi tiết để xem milestone, deadline, lịch sử</small></div>
+        <div class="card-body" style="padding:0">
+          <div class="progress-wrap">
+            <table class="progress-table">
+              <thead><tr><th>Project</th><th>Progress</th><th>Timeline</th><th>Current Stage</th><th style="text-align:right">Action</th></tr></thead>
+              <tbody id="progressFullBody"></tbody>
+            </table>
+          </div>
+          <!-- keep legacy container for preview compatibility -->
+          <div id="progressFull" style="display:none"></div>
+        </div>
+      </div>
+    </section>
+    <!-- MODAL TIẾN TRÌNH -->
+    <div class="modal-overlay" id="progressModal">
+      <div class="modal">
+        <div class="modal-head"><h3 id="modalTitle">Chi tiết tiến trình</h3><button class="modal-close" onclick="closeProgressModal()">✕</button></div>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+
+    <!-- PANEL: THỐNG KÊ -->
+    <section class="panel" id="panel-stats">
+      <div class="card">
+        <div class="card-header">💰 THỐNG KÊ — Chi phí / Reward / Doanh thu</div>
+        <div class="card-body">
+          <div class="stats-summary" id="statsSummaryFull"></div>
+          <div style="overflow:auto;margin-top:12px">
+            <table class="stats-table" id="statsTableFull">
+              <thead><tr><th>Project</th><th>Cost</th><th>Reward</th><th>Revenue</th><th>P/L</th><th>ROI</th><th>Status</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="side-title">🔔 THÔNG BÁO</div>
+    <div class="side-tabs">
+      <button class="side-tab active" data-filter="all">Tất cả</button>
+      <button class="side-tab" data-filter="unread">Chưa đọc</button>
+      <button class="side-tab" data-filter="important">Quan trọng</button>
+    </div>
+    <div id="notificationsList"></div>
+    <button class="mark-all" id="markAllBtn">✓ Đánh dấu tất cả đã đọc</button>
+  </aside>
+</div>
+
+<!-- DATA as JS fallback for file:// -->
+<script src="./data/projects.js"></script>
+<script src="./data/news.js"></script>
+<script src="./data/notifications.js"></script>
+<script src="./data/progress.js"></script>
+<script src="./data/statistics.js"></script>
+<script src="./data/daily_tasks.js"></script>
+<script src="./data/baseline_tasks.js"></script>
+<script src="./data/new_tasks.js"></script>
+<script src="./js/tabs.js"></script>
+<script src="./js/news.js"></script>
+<script src="./js/tasks.js"></script>
+<script src="./js/progress.js"></script>
+<script src="./js/statistics.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>
