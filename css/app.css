@@ -140,10 +140,10 @@ button{font-family:inherit}
 .news-logo:has(img[src]) span{ display:none; }
 .news-logo img[style*="display: none"] + span{ display:flex !important; }
 .news-text{min-width:0}
-.news-project{font-size:15px;font-weight:800;color:var(--text);margin-bottom:2px}
-.news-summary{font-size:14.5px;color:var(--muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:600}
+.news-project{font-size:18px;font-weight:800;color:var(--text);margin-bottom:3px}
+.news-summary{font-size:17.5px;color:var(--muted);line-height:1.65;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:600}
 .news-meta{display:flex;flex-direction:column;align-items:flex-end;gap:8px;white-space:nowrap}
-.source{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:4px;font-weight:600}
+.source{font-size:16px;color:var(--muted);display:flex;align-items:center;gap:4px;font-weight:600}
 .btn-accent{
   background:var(--accent);color:#fff;border:none;
   padding:7px 14px;border-radius:7px;font-size:13px;font-weight:800;letter-spacing:.3px;
