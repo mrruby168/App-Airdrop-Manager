@@ -43,22 +43,14 @@
 <div class="layout">
   <!-- MAIN -->
   <main class="main">
-    <!-- PANEL: THÔNG BÁO / Important Events -->
+    <!-- PANEL: THÔNG BÁO - tin mới quét trong ngày (chỉ sự kiện quan trọng) -->
     <section class="panel active" id="panel-news">
       <div class="card">
         <div class="card-header">🔔 THÔNG BÁO</div>
-        <div style="padding:14px 14px 8px;border-bottom:1px solid #EEF2F7">
-          <div style="font-size:16px;font-weight:800;display:flex;gap:8px;align-items:center">🗓️ Important Events</div>
-          <p style="font-size:13px;color:#6B7A90;margin-top:4px;font-weight:600">Chỉ sự kiện quan trọng liên quan TGE, Snapshot, Registration, Claim, End, Mint, Eligibility, Allocation</p>
-          <div style="display:flex;gap:8px;margin-top:12px">
-            <button class="imp-tab active" data-imp="upcoming" id="impUpcomingBtn">🚨 Upcoming</button>
-            <button class="imp-tab" data-imp="history" id="impHistoryBtn">🕘 History</button>
-          </div>
-        </div>
-        <div class="news-list" id="upcomingList"></div>
-        <div class="news-list" id="historyList" style="display:none"></div>
-        <div id="impEmpty" style="display:none;padding:20px;text-align:center;color:#6B7A90;font-size:14px;font-weight:600"></div>
-        <!-- giữ newsList cũ ẩn để không vỡ JS khác -->
+        <div class="news-list" id="todayImportantList"></div>
+        <!-- giữ các id cũ ẩn để không vỡ JS -->
+        <div id="upcomingList" style="display:none"></div>
+        <div id="historyList" style="display:none"></div>
         <div id="newsList" style="display:none"></div>
       </div>
     </section>
@@ -131,16 +123,16 @@
     </section>
   </main>
 
-  <!-- SIDEBAR -->
+   <!-- SIDEBAR: Important Events -->
   <aside class="sidebar">
-    <div class="side-title">🔔 THÔNG BÁO</div>
+    <div class="side-title">🗓️ Important Events</div>
     <div class="side-tabs">
-      <button class="side-tab active" data-filter="all">Tất cả</button>
-      <button class="side-tab" data-filter="unread">Chưa đọc</button>
-      <button class="side-tab" data-filter="important">Quan trọng</button>
+      <button class="side-tab active" data-filter="upcoming">🚨 Upcoming</button>
+      <button class="side-tab" data-filter="history">🕘 History</button>
     </div>
-    <div id="notificationsList"></div>
-    <button class="mark-all" id="markAllBtn">✓ Đánh dấu tất cả đã đọc</button>
+    <div id="sidebarImportantList"></div>
+    <div id="notificationsList" style="display:none"></div>
+    <button class="mark-all" id="markAllBtn" style="display:none">✓ Đánh dấu tất cả đã đọc</button>
   </aside>
 </div>
 

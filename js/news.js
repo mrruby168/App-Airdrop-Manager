@@ -1,4 +1,4 @@
-/* news.js - THÔNG BÁO > Important Events (Upcoming/History) - file:// safe - tiếng Việt */
+/* news.js - THÔNG BÁO trái: tin mới quét trong ngày (chỉ sự kiện quan trọng TGE/Snapshot...) - file:// safe */
 function logoFallback(name){
   const init = (name||'?').trim().charAt(0).toUpperCase();
   return init;
@@ -13,159 +13,63 @@ async function fetchJSON(path, fallbackVar){
 }
 function parseDate(str){
   if(!str) return null;
-  const d = new Date(str);
-  return isNaN(d.getTime()) ? null : d;
+  const d=new Date(str);
+  return isNaN(d.getTime())?null:d;
 }
-function formatDateVN(dateStr){
-  const d = parseDate(dateStr);
-  if(!d) return dateStr;
-  const dd = String(d.getDate()).padStart(2,'0');
-  const mm = String(d.getMonth()+1).padStart(2,'0');
-  const yyyy = d.getFullYear();
-  // if has time
-  if(dateStr.includes('T')){
-    const hh = String(d.getHours()).padStart(2,'0');
-    const mi = String(d.getMinutes()).padStart(2,'0');
-    return `${dd}/${mm}/${yyyy} ${hh}:${mi}`;
-  }
-  return `${dd}/${mm}/${yyyy}`;
+function isToday(dateStr){
+  const d=parseDate(dateStr);
+  if(!d) return false;
+  const today=new Date('2026-09-21T00:00:00+07:00');
+  return d.getFullYear()===today.getFullYear() && d.getMonth()===today.getMonth() && d.getDate()===today.getDate();
 }
-function getImportantEvents(projects){
-  // today = 2026-09-21 (headerDate) for classification
-  const today = new Date('2026-09-21T00:00:00+07:00');
-  today.setHours(0,0,0,0);
-  const events=[];
-  projects.forEach(p=>{
-    const name=p.name;
-    const logo=p.logo||'';
-    const web=p.web_link||'';
-    const x=p.x_post_link||'';
-    // TGE
-    if(p.tge_date){
-      const d=parseDate(p.tge_date);
-      if(d){
-        const isUpcoming = d >= today;
-        events.push({
-          project:name, logo, web, x,
-          date:p.tge_date, dateObj:d,
-          type:'TGE',
-          summary: isUpcoming ? `${name} sắp TGE ngày ${formatDateVN(p.tge_date)}` : `${name} đã TGE ngày ${formatDateVN(p.tge_date)}`,
-          isUpcoming
-        });
-      }
-    }
-    // task_date - determine type by task content
-    if(p.task_date){
-      const d=parseDate(p.task_date);
-      if(d){
-        const isUpcoming = d >= today;
-        let type='End';
-        let summary='';
-        const taskLower=(p.note||'').toLowerCase();
-        if(name==='Amadeus'){
-          type='End';
-          summary = isUpcoming ? `${name} chuẩn bị kết thúc ngày ${formatDateVN(p.task_date)}` : `${name} đã kết thúc ngày ${formatDateVN(p.task_date)}`;
-        } else if(name==='EarnList'){
-          type='Registration';
-          summary = isUpcoming ? `${name} chuẩn bị đóng đăng ký ngày ${formatDateVN(p.task_date)}` : `${name} đã đóng đăng ký ngày ${formatDateVN(p.task_date)}`;
-        } else if(name==='XDAO'){
-          // XDAO task_date is snapshot 20/09 - history
-          // Also need to handle Arbitrum 25/09 as separate claim event
-          type='Snapshot';
-          summary = isUpcoming ? `${name} Snapshot dự kiến ngày ${formatDateVN(p.task_date)}` : `${name} đã Snapshot ngày ${formatDateVN(p.task_date)}`;
-          events.push({project:name,logo,web,x,date:p.task_date,dateObj:d,type,summary,isUpcoming});
-          // Add Arbitrum claim as upcoming (from task description)
-          const arbDate='2026-09-25';
-          const arbD=parseDate(arbDate);
-          events.push({
-            project:name, logo, web, x,
-            date:arbDate, dateObj:arbD,
-            type:'Claim',
-            summary:`${name} sắp mở Claim (Arbitrum) ngày ${formatDateVN(arbDate)}`,
-            isUpcoming:true
-          });
-          return; // already pushed, skip generic push
-        } else if(name==='CZR Genesis Airdrop'){
-          // task_date same as TGE, treat as End
-          type='End';
-          summary = isUpcoming ? `${name} chuẩn bị kết thúc nhiệm vụ Genesis ngày ${formatDateVN(p.task_date)}` : `${name} đã kết thúc nhiệm vụ Genesis ngày ${formatDateVN(p.task_date)}`;
-        } else {
-          summary = isUpcoming ? `${name} sắp đến hạn ngày ${formatDateVN(p.task_date)}` : `${name} đã diễn ra ngày ${formatDateVN(p.task_date)}`;
-        }
-        events.push({project:name,logo,web,x,date:p.task_date,dateObj:d,type,summary,isUpcoming});
-      }
-    }
-  });
-  // Filter only important types (already are) and sort
-  // Upcoming ascending, History descending
-  const upcoming = events.filter(e=>e.isUpcoming).sort((a,b)=>a.dateObj-b.dateObj);
-  const history = events.filter(e=>!e.isUpcoming).sort((a,b)=>b.dateObj-a.dateObj);
-  return {upcoming, history};
+function isImportantNews(item){
+  // Chỉ giữ sự kiện quan trọng liên quan TGE, Snapshot, Registration, Claim, End, Mint, Eligibility, Allocation
+  const txt=((item.summary_vi||'')+' '+(item.level||'')).toLowerCase();
+  const keywords=['tge','snapshot','registration','đăng ký','claim','end','kết thúc','mint','eligibility','đủ điều kiện','allocation','genesis','important','season'];
+  // level info is less important, but keep if contains keyword
+  if(item.level==='info' && !keywords.some(k=>txt.includes(k))) return false;
+  // keep important/normal + keyword or all important levels
+  if(item.level==='important') return true;
+  if(keywords.some(k=>txt.includes(k))) return true;
+  // fallback: keep if project has important
+  return txt.includes('genesis') || txt.includes('season') || txt.includes('daily')===false; // daily is not important per rule? but keep genesis
 }
-function renderEvents(list, containerId){
-  const c=document.getElementById(containerId);
-  if(!c) return;
-  if(!list.length){
-    c.innerHTML=`<div style="padding:20px;text-align:center;color:#6B7A90;font-size:14px;font-weight:600">Chưa có sự kiện</div>`;
-    return;
-  }
-  c.innerHTML=list.map(ev=>{
-    const logo = ev.logo ? `<img src="${ev.logo}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><span>${logoFallback(ev.project)}</span>` : `<span>${logoFallback(ev.project)}</span>`;
-    const badgeClass = ev.isUpcoming ? 'upcoming' : 'history';
-    const badgeText = ev.isUpcoming ? `🚨 ${ev.type}` : `🕘 ${ev.type}`;
-    const dateText = formatDateVN(ev.date);
-    return `<div class="imp-item">
-      <div class="news-logo">${logo}</div>
-      <div class="news-text">
-        <div class="news-project">${ev.project}</div>
-        <div class="news-summary">${ev.summary}</div>
-        <div style="font-size:12px;color:#6B7A90;margin-top:4px;font-weight:600">📅 ${dateText} · ${ev.type}</div>
-      </div>
-      <div class="news-meta">
-        <span class="imp-badge ${badgeClass}">${badgeText}</span>
-        <button class="btn-accent" onclick="window.open('${ev.web||ev.x||'#'}','_blank')">XEM NGAY ↗</button>
-      </div>
-    </div>`;
-  }).join('');
-}
-async function loadImportantEvents(){
+async function loadNews(){
   try{
-    const pj = await fetchJSON('./data/projects.json','DATA_PROJECTS');
-    const projects = pj.projects||[];
-    const {upcoming, history} = getImportantEvents(projects);
-    renderEvents(upcoming,'upcomingList');
-    renderEvents(history,'historyList');
-    // tab logic
-    const upBtn=document.getElementById('impUpcomingBtn');
-    const hiBtn=document.getElementById('impHistoryBtn');
-    const upList=document.getElementById('upcomingList');
-    const hiList=document.getElementById('historyList');
-    const empty=document.getElementById('impEmpty');
-    function show(tab){
-      if(tab==='upcoming'){
-        upBtn.classList.add('active'); hiBtn.classList.remove('active');
-        upList.style.display=''; hiList.style.display='none';
-        empty.style.display = upList.innerHTML.includes('Chưa có sự kiện') ? '' : 'none';
-      } else {
-        hiBtn.classList.add('active'); upBtn.classList.remove('active');
-        hiList.style.display=''; upList.style.display='none';
-        empty.style.display = hiList.innerHTML.includes('Chưa có sự kiện') ? '' : 'none';
-      }
+    const data=await fetchJSON('./data/news.json','DATA_NEWS');
+    const list=data.items||[];
+    // Lọc: chỉ tin mới quét trong ngày (created_at today) + chỉ sự kiện quan trọng
+    const todayImportant=list.filter(n=> isToday(n.created_at||n.published_at) && isImportantNews(n));
+    // Fallback nếu lọc ra rỗng thì hiện tất cả tin hôm nay
+    const toShow = todayImportant.length ? todayImportant : list.filter(n=>isToday(n.created_at||n.published_at));
+    const container=document.getElementById('todayImportantList')||document.getElementById('newsList');
+    if(!container) return;
+    if(!toShow.length){
+      container.innerHTML=`<div style="padding:20px;text-align:center;color:#6B7A90;font-size:14px;font-weight:600">Chưa có tin quan trọng mới trong ngày</div>`;
+      return;
     }
-    upBtn?.addEventListener('click',()=>show('upcoming'));
-    hiBtn?.addEventListener('click',()=>show('history'));
-    // default Upcoming
-    show('upcoming');
-    // also keep legacy newsList hidden but fill for compatibility
-    try{
-      const newsData=await fetchJSON('./data/news.json','DATA_NEWS');
-      const nl=document.getElementById('newsList');
-      if(nl && newsData.items) nl.innerHTML='';
-    }catch{}
+    container.innerHTML=toShow.map(n=>{
+      const fb=n.logo||'';
+      const logo=fb?`<img src="${fb}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><span>${logoFallback(n.project_name)}</span>`:`<span>${logoFallback(n.project_name)}</span>`;
+      return `<div class="news-item">
+        <div class="news-logo">${logo}</div>
+        <div class="news-text">
+          <div class="news-project">${n.project_name}</div>
+          <div class="news-summary">${n.summary_vi}</div>
+        </div>
+        <div class="news-meta">
+          <div class="source">${n.source_name.includes('X')?'𝕏':'🌐'} Source: ${n.source_name}</div>
+          <button class="btn-accent" onclick="window.open('${n.source_url}','_blank')">XEM NGAY ↗</button>
+        </div>
+      </div>`;
+    }).join('');
+    // keep legacy hidden containers for compatibility
+    const legacy=document.getElementById('newsList');
+    if(legacy && legacy.id!=='todayImportantList') legacy.style.display='none';
   }catch(e){
-    console.error('loadImportantEvents',e);
-    const c=document.getElementById('upcomingList');
-    if(c) c.innerHTML=`<div style="padding:20px;color:#E85D5D">Lỗi tải sự kiện: ${e.message}</div>`;
+    console.error('loadNews',e);
+    const c=document.getElementById('todayImportantList');
+    if(c) c.innerHTML=`<div style="padding:20px;color:#E85D5D">Lỗi tải tin: ${e.message}</div>`;
   }
 }
-document.addEventListener('DOMContentLoaded', loadImportantEvents);
+document.addEventListener('DOMContentLoaded', loadNews);
