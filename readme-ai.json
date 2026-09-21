@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "app": "AIRDROP DASHBOARD — Daily Monitor",
+  "updated_at": "2026-09-21T16:00:00+07:00",
+  "project_root": "D:\\AI-AGENT\\MMO\\Airdrop\\Data\\task-app",
+  "principle": "CODE STABLE — DATA DYNAMIC: index.html/css/js/schema cố định, AI chỉ sửa data/*.json + data/*.js, validate schema rồi app tự render. Chạy file:// được nhờ fallback window.DATA_*.",
+  "data_flow": "READ list_airdrop.json / nguồn web → EXTRACT → NORMALIZE (tiếng Việt, tách task 1 dòng) → VERIFY (không bịa) → UPDATE data/*.json → VALIDATE schema → BACKUP data/*.json → REGEN data/*.js (window.DATA_*) → TEST file:// → COMMIT → PUSH",
+  "commands": {
+    "regen_js_fallback": "python -X utf8 \"D:\\CODE\\Runtime\\Python\\Temp\\gen_js_data.py\"  # từ data/*.json sinh data/*.js window.DATA_*",
+    "translate_tasks": "python -X utf8 \"D:\\CODE\\Runtime\\Python\\Temp\\translate_tasks.py\"  # list_airdrop.json task -> TV",
+    "sync_to_app": "python -X utf8 \"D:\\CODE\\Runtime\\Python\\Temp\\sync_vn_to_app.py\"  # đồng bộ note/baseline/daily/data.js",
+    "fix_logos": "python -X utf8 \"D:\\CODE\\Runtime\\Python\\Temp\\fix_logos.py\"  # logo https://unavatar.io/x/<handle> từ link_x",
+    "fix_stats_revenue0": "python -X utf8 \"D:\\CODE\\Runtime\\Python\\Temp\\fix_stats_revenue0.py\"  # revenue=0 cho 20 projects",
+    "validate": "python -X utf8 \"D:\\CODE\\Runtime\\Python\\Temp\\validate_app.py\"",
+    "serve": "npx -y serve .  # hoặc mở trực tiếp index.html file:// nhờ fallback"
+  },
+  "tabs": {
+    "thong_bao": {
+      "label": "🔔 THÔNG BÁO",
+      "file": "index.html:46-53 #panel-news",
+      "data": "data/news.json -> window.DATA_NEWS (3 items)",
+      "purpose": "Xem nhanh tin quan trọng mới quét trong ngày (chỉ TGE/Snapshot/Registration/Claim/End/Mint/Eligibility/Allocation), đã dịch tiếng Việt tóm tắt 1-3 câu, giữ logo X, Source + nút XEM NGAY mở tab mới. Không phải dashboard chi tiết.",
+      "fields": "project_name, summary_vi (TV), source_name, source_url, source_status, level (critical/important/normal/info), published_at, created_at",
+      "push_rule": "AI: SOURCE -> READ -> VERIFY -> TRANSLATE TV -> SUMMARIZE 1-3 câu -> DEDUP -> SAVE news.json (todayImportant). Không bịa URL/source, không copy nguyên bài dài. Source không truy cập được thì source_status=inaccessible. Cập nhật updated_at."
+    },
+    "important_events": {
+      "label": "🗓️ Important Events (trong THÔNG BÁO phải)",
+      "file": "index.html:136-144 #sidebarImportantList + js/app.js:18-99",
+      "data": "data/projects.json (task_date/tge_date) -> suy ra window.DATA_PROJECTS -> js/app.js getImportantEvents()",
+      "purpose": "Theo dõi sự kiện quan trọng liên quan TGE/Snapshot/Registration/Claim/End/Mint/Eligibility/Allocation để không miss. Hiển thị 2 tab con.",
+      "tabs": {
+        "upcoming": {
+          "label": "🚨 Upcoming",
+          "rule": "date >= 21/09/2026 (today). Ví dụ: Amadeus chuẩn bị kết thúc 12/10, EarnList chuẩn bị đóng đăng ký 22/09, CZR sắp TGE 01/10, XDAO sắp mở Claim Arbitrum 25/09, XYZ Snapshot dự kiến 28/09",
+          "sort": "tăng dần theo date"
+        },
+        "history": {
+          "label": "🕘 History",
+          "rule": "date < 21/09/2026. Ví dụ: XDAO đã Snapshot 20/09 14:00, ABC đã TGE 21/08, ABC đã Snapshot 20/07, XYZ đã đóng đăng ký 18/09, DEF đã mở Claim 15/09",
+          "sort": "giảm dần theo date"
+        }
+      },
+      "push_rule": "Không tạo thủ công; tự suy ra từ projects.json task_date/tge_date. Khi thêm dự án mới có deadline/TGE, sidebar tự hiện. AI chỉ cập nhật task_date/tge_date trong list_airdrop.json -> sync projects.json."
+    },
+    "task_moi": {
+      "label": "TASK MỚI",
+      "file": "index.html:55-65 + js/tasks.js:51-77",
+      "data": "data/daily_tasks.json (3) + data/new_tasks.json (0) -> window.DATA_DAILY/DATA_NEW",
+      "purpose": "Theo dõi việc cần làm nhất: DAILY đang active + NEW TASK phát hiện mới (CURRENT - BASELINE). Tránh miss farm hàng ngày và task mới bất ngờ.",
+      "sub": {
+        "daily_task": {
+          "label": "🔁 DAILY TASK",
+          "rule": "type=daily, status active, chưa remind hôm nay (check progress_task). Hiển thị card riêng, 1 task=1 dòng 👉, không gộp.",
+          "push_file": "data/daily_tasks.json (id, project_id, description TV, priority, chain, task_date)"
+        },
+        "new_task": {
+          "label": "🆕 NEW TASK",
+          "rule": "NEW = CURRENT one_time - BASELINE. Nếu đã tồn tại trong baseline -> existing, nếu mới -> new, nếu đã từng phát hiện -> known_new. Không duplicate.",
+          "push_file": "data/new_tasks.json + data/baseline_tasks.json (snapshot ban đầu, không ghi đè). Phát hiện xong tạo notifications.json"
+        }
+      }
+    },
+    "all_task_project": {
+      "label": "ALL TASK PROJECT",
+      "file": "index.html:67-92 + js/tasks.js:18-44 + css/app.css:324",
+      "data": "data/projects.json (20) -> card grid",
+      "purpose": "Xem toàn bộ task gốc từng dự án (Daily/One-time, priority, chain), lọc Tất cả/Daily/One-time, priority, tìm kiếm, copy, mở Web/X. Không thay baseline.",
+      "push_rule": "Nguồn duy nhất: list_airdrop.json (12 field). Thêm/sửa qua RULE-MANAGER-PROJECT, sau đó sync sang projects.json (note=task TV) và data/*.js. Không sửa task meaning để làm UI đẹp."
+    },
+    "tien_trinh": {
+      "label": "TIẾN TRÌNH",
+      "file": "index.html:94-115 + js/progress.js:1-123 + css/app.css:211-269 + data/progress.json",
+      "data": "data/progress.json (20, mỗi project 1 hàng ngang)",
+      "purpose": "Nhìn nhanh project đang ở giai đoạn nào: Progress % + Timeline ngang (Register->Wallet->Quest->Daily->Snapshot->TGE->Claim) với trạng thái ✅ done/🔵 active/⚪ pending/🔒 locked + Current Stage + nút Chi tiết modal (milestone, deadline, note, lịch sử). Không để AI tự đánh done.",
+      "push_rule": "AI chỉ cập nhật new/active/pending/locked/available/expired/changed từ verify, người dùng mới xác nhận done. Cập nhật progress_percent, current_stage, stages[]. Validate xong mới ghi."
+    },
+    "thong_ke": {
+      "label": "THỐNG KÊ",
+      "file": "index.html:118-132 + js/statistics.js + data/statistics.json",
+      "data": "data/statistics.json (summary 20 + items)",
+      "purpose": "Quản lý tài chính: Cost/Reward/Revenue/P/L/ROI theo từng project và tổng (PROJECT/COST/REWARD/REVENUE/P/L/ROI). Hiện tại revenue=0 cho 20 projects (pending, profit=-cost, roi=-100). Dùng để DYOR, không phải realized.",
+      "push_rule": "Chỉ cập nhật khi có claim/revenue thực. Trước TGE để revenue=0, profit=-cost, status pending. Khi claim mới đổi realized và điền reward/revenue thực, không bịa."
+    }
+  },
+  "rules": {
+    "ai_duoc_sua": "data/* (projects.json, news.json, notifications.json, progress.json, statistics.json, daily_tasks.json, baseline_tasks.json, new_tasks.json) + data/*.js fallback",
+    "ai_khong_sua": "index.html, css/*, js/*, schema/* khi cập nhật hàng ngày (trừ khi user yêu cầu fix UI)",
+    "data_integrity": "Giữ đúng schema_version, updated_at GMT+7, id duy nhất, không duplicate, không mất data, logo https://unavatar.io/x/<handle> + onerror fallback chữ cái, task 1 dòng 1 item s[], không thêm 👉 vào DATA",
+    "validation_order": "LOAD -> CHECK JSON -> CHECK SCHEMA -> CHECK REQUIRED FIELDS -> CHECK UNIQUE ID -> CHECK PROJECT REFERENCES -> CHECK DUPLICATE TASK -> RENDER, lỗi thì DATA ERROR không crash app",
+    "backup": "Trước khi ghi mới: backup data/current -> backup/*.json, validate mới OK thì giữ, fail thì restore"
+  },
+  "verification": "Mở D:\\AI-AGENT\\MMO\\Airdrop\\Data\\task-app\\index.html file:// hoặc npx serve . — kiểm tra 5 tab, sidebar Upcoming/History, icon X không đè chữ (has(img[src]) rule), font +2/+3 đã áp dụng."
+}
